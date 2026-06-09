@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { siteConfig } from "../constants/site";
 
 export function ProfilePhoto() {
   const [imageError, setImageError] = useState(false);
+  const profileImageUrl = `${siteConfig.baseUrl}images/profile.jpg`;
 
   return (
     <div className="relative mx-auto h-64 w-64 sm:h-80 sm:w-80">
@@ -9,7 +11,7 @@ export function ProfilePhoto() {
         <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/10 backdrop-blur-md dark:bg-white/[0.06]">
           {!imageError ? (
             <img
-              src="/images/profile.jpg"
+              src={profileImageUrl}
               alt="Foto de perfil de Joao Victor Alves de Abreu"
               className="h-full w-full rounded-full object-cover"
               loading="eager"

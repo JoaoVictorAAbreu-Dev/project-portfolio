@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { FormEvent } from "react";
-import { FiArrowRight, FiDownload, FiGithub, FiLinkedin, FiMapPin, FiZap } from "react-icons/fi";
+import { FiArrowRight, FiDownload, FiGithub, FiLinkedin, FiMapPin, FiServer, FiZap } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "../components/ExternalLink";
 import { ProfilePhoto } from "../components/ProfilePhoto";
@@ -25,6 +25,8 @@ import { usePageMeta } from "../utils/meta";
 
 export function HomePage() {
   const shouldReduceMotion = useReducedMotion();
+  const focusAreas = ["APIs REST", "Arquitetura backend", "Boas praticas de codigo"];
+  const resumeUrl = `${import.meta.env.BASE_URL}curriculo-joao-victor.pdf`;
 
   usePageMeta({
     title: "Joao Victor Alves de Abreu | Software Engineering Student",
@@ -49,6 +51,7 @@ export function HomePage() {
       >
         <div className="hero-orb right-[4%] top-[6%] h-40 w-40 bg-brand-500/20" />
         <div className="hero-orb left-[8%] top-[32%] h-24 w-24 bg-cyan-300/25" />
+        <div className="hero-orb right-[16%] top-[52%] h-32 w-32 bg-cyan-300/15" />
         <div className="flex flex-col justify-center">
           <motion.p {...reveal()} className="eyebrow">
             Software portfolio orientado a contratacao
@@ -68,14 +71,29 @@ export function HomePage() {
             id="hero-title"
             className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl"
           >
-            Joao Victor Alves de Abreu
+            Construindo base solida para atuar com{" "}
+            <span className="headline-gradient">engenharia de software backend</span>.
           </motion.h1>
+          <motion.p {...reveal(0.08)} className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100 sm:text-xl">
+            Joao Victor Alves de Abreu
+          </motion.p>
           <motion.p {...reveal(0.1)} className="mt-6 text-xl text-slate-700 dark:text-slate-200 sm:text-2xl">
             Software Engineering Student | Backend Developer
           </motion.p>
           <motion.p {...reveal(0.15)} className="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
             Desenvolvendo solucoes com foco em Java, C#, .NET, APIs REST e arquitetura de software, com atencao especial a organizacao, clareza tecnica e evolucao consistente para ambientes profissionais.
           </motion.p>
+          <motion.div {...reveal(0.18)} className="mt-8 flex flex-wrap gap-3">
+            {focusAreas.map((area) => (
+              <span
+                key={area}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 shadow-[0_8px_24px_rgba(148,163,184,0.12)] dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200"
+              >
+                <FiServer aria-hidden="true" className="text-brand-600 dark:text-cyan-300" />
+                {area}
+              </span>
+            ))}
+          </motion.div>
 
           <motion.div {...reveal(0.2)} className="mt-10 flex flex-wrap gap-4">
             <ExternalLink
@@ -96,7 +114,7 @@ export function HomePage() {
               <FiLinkedin />
               LinkedIn
             </ExternalLink>
-            <a href="/curriculo-joao-victor.pdf" download className="btn-secondary">
+            <a href={resumeUrl} download className="btn-secondary">
               <FiDownload />
               Baixar curriculo
             </a>
@@ -111,7 +129,7 @@ export function HomePage() {
               <motion.article
                 key={item.label}
                 {...reveal(0.08 * index)}
-                className="glass-card"
+                className="mini-stat"
               >
                 <p className="text-sm text-slate-500 dark:text-slate-400">{item.label}</p>
                 <p className="mt-3 text-2xl font-semibold text-slate-950 dark:text-white">{item.value}</p>
@@ -123,7 +141,7 @@ export function HomePage() {
 
         <div className="flex flex-col justify-center gap-6">
           <ProfilePhoto />
-          <div className="glass-card">
+          <div className="hero-panel">
             <div className="flex items-center justify-between gap-4">
               <p className="eyebrow">Snapshot profissional</p>
               <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-300">
@@ -138,6 +156,10 @@ export function HomePage() {
                 </div>
               ))}
             </div>
+            <div className="section-divider mt-6" />
+            <p className="mt-6 text-sm leading-7 text-slate-600 dark:text-slate-300">
+              Perfil direcionado para times que valorizam organizacao, aprendizado rapido e evolucao consistente em backend moderno.
+            </p>
           </div>
         </div>
       </section>
@@ -156,6 +178,10 @@ export function HomePage() {
                 {point}
               </p>
             ))}
+            <div className="section-divider pt-2" />
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+              Objetivo atual: conquistar estagio em engenharia de software com foco backend.
+            </p>
           </div>
           <div className="grid gap-5">
             {highlights.map(({ icon: Icon, title, description }) => (
@@ -177,6 +203,22 @@ export function HomePage() {
           eyebrow="Stack tecnologica"
           title="Competencias organizadas por area, com foco em backend e crescimento profissional consistente."
         />
+        <div className="mt-8 hero-panel">
+          <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-600 dark:text-cyan-300">
+                Direcao principal
+              </p>
+              <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">
+                Minha prioridade esta em aprofundar Java, C#, .NET, Spring Boot, SQL e desenho de APIs para atuar em times que precisem de codigo organizado, evolutivo e confiavel.
+              </p>
+            </div>
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-2 text-sm font-semibold text-brand-700 dark:text-cyan-300">
+              <FiZap aria-hidden="true" />
+              Backend-first mindset
+            </div>
+          </div>
+        </div>
         <div className="mt-12 grid gap-6 xl:grid-cols-2">
           {skillCategories.map((category) => (
             <article key={category.category} className="glass-card">
@@ -412,7 +454,7 @@ export function HomePage() {
                 </div>
               </a>
             ))}
-            <a href="/curriculo-joao-victor.pdf" download className="btn-primary w-fit">
+            <a href={resumeUrl} download className="btn-primary w-fit">
               <FiDownload />
               Baixar curriculo
             </a>

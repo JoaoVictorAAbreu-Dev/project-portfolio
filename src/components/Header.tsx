@@ -24,10 +24,10 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80">
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/72 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/72">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <NavLink to="/" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-500/25 bg-brand-500/10 font-semibold text-brand-600 dark:text-cyan-300">
+        <NavLink to="/" className="group flex items-center gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-500/25 bg-gradient-to-br from-brand-500/15 to-cyan-300/20 font-semibold text-brand-600 transition group-hover:scale-105 dark:text-cyan-300">
             JV
           </span>
           <div>
@@ -45,7 +45,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-slate-600 transition hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+              className="text-sm text-slate-600 transition hover:text-brand-700 dark:text-slate-300 dark:hover:text-cyan-300"
             >
               {item.label}
             </a>
