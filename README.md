@@ -3,7 +3,7 @@
 Portfólio profissional de João Victor Alves de Abreu.
 Estudante de Ciência da Computação na FIAP com foco em backend, FastAPI, Java e machine learning aplicado.
 
-🔗 [Deploy atual](https://joaovictoraabreu-dev.github.io/site-portifolio/#/)
+🔗 [Deploy atual](https://joaovictoraabreu-dev.github.io/Meu_Portifolio/#/)
 
 ## Stack principal
 Python · FastAPI · Java · React · TypeScript · scikit-learn

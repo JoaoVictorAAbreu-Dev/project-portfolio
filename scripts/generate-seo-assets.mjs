@@ -1,14 +1,14 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const siteUrl = (
-  process.env.VITE_SITE_URL || "https://joaovictoraabreu-dev.github.io/site-portifolio"
+  process.env.VITE_SITE_URL || "https://joaovictoraabreu-dev.github.io/Meu_Portifolio"
 ).replace(/\/$/, "");
 const pages = [
   "",
   "/#/projetos/motiva-orion",
-  "/#/projetos/space-predictive-analytics-center",
-  "/#/projetos/sistema-java-monitoramento-espacial",
-  "/#/projetos/api-rest-backend",
+  "/#/projetos/climatemind-ai",
+  "/#/projetos/bot-nba",
+  "/#/projetos/aetheros",
 ];
 
 mkdirSync("public", { recursive: true });

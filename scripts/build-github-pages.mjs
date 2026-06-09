@@ -2,7 +2,7 @@ import { execSync } from "node:child_process";
 
 function resolveRepositoryName() {
   if (process.env.GITHUB_REPOSITORY_NAME) {
-    return process.env.GITHUB_REPOSITORY_NAME.toLowerCase();
+    return process.env.GITHUB_REPOSITORY_NAME;
   }
 
   try {
@@ -14,15 +14,15 @@ function resolveRepositoryName() {
     const match = normalizedRemote.match(/\/([^/]+?)(?:\.git)?$/);
 
     if (match?.[1]) {
-      return match[1].toLowerCase();
+      return match[1];
     }
   } catch {}
 
-  return "site-portifolio";
+  return "Meu_Portifolio";
 }
 
 const repositoryName = resolveRepositoryName();
-const repositoryOwner = (process.env.GITHUB_REPOSITORY_OWNER || "JoaoVictorAAbreu-Dev").toLowerCase();
+const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER || "JoaoVictorAAbreu-Dev";
 
 const env = {
   ...process.env,
