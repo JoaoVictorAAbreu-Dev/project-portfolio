@@ -432,8 +432,8 @@ export const timeline: TimelineItem[] = [
 export const contactLinks: ContactLink[] = [
   {
     label: "Email",
-    value: "jv9217096@gmail.com",
-    href: "mailto:jv9217096@gmail.com",
+    value: "joaovictoralvesabreu1@gmail.com",
+    href: "mailto:joaovictoralvesabreu1@gmail.com",
     icon: FiMail,
   },
   {
@@ -459,7 +459,7 @@ export const footerLinks = [
     href: "https://www.linkedin.com/in/jo%C3%A3ovictoraabreu",
     icon: FiLinkedin,
   },
-  { label: "Email", href: "mailto:jv9217096@gmail.com", icon: FiMail },
+  { label: "Email", href: "mailto:joaovictoralvesabreu1@gmail.com", icon: FiMail },
 ];
 
 export const sectionIcons = {

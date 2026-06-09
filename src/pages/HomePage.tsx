@@ -453,7 +453,7 @@ function ContactForm() {
             O endpoint do Formspree ainda não foi configurado neste deploy. Enquanto isso, o contato direto por email e LinkedIn permanece disponível.
           </p>
           <div className="mt-5 flex flex-wrap gap-4">
-            <a href="mailto:jv9217096@gmail.com" className="btn-secondary">
+            <a href="mailto:joaovictoralvesabreu1@gmail.com" className="btn-secondary">
               <FiMail />
               Enviar email
             </a>
