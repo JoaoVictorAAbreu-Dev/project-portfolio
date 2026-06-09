@@ -33,11 +33,11 @@ export const seo = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Sobre", href: "/#sobre" },
-  { label: "Stack", href: "/#stack" },
-  { label: "Projetos", href: "/#projetos" },
-  { label: "Jornada", href: "/#jornada" },
-  { label: "Contato", href: "/#contato" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "Stack", href: "#stack" },
+  { label: "Projetos", href: "#projetos" },
+  { label: "Jornada", href: "#jornada" },
+  { label: "Contato", href: "#contato" },
 ];
 
 export const aboutPoints = [
