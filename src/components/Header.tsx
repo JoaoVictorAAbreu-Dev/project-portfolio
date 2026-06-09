@@ -32,10 +32,10 @@ export function Header() {
           </span>
           <div>
             <p className="text-sm font-semibold text-slate-950 dark:text-white">
-              Joao Victor Alves de Abreu
+              João Victor Alves de Abreu
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Backend Software Engineering Portfolio
+              Backend Engineer · FastAPI · Java · ML
             </p>
           </div>
         </NavLink>

@@ -1,15 +1,30 @@
-type ContactPayload = {
+export type ContactPayload = {
   email: string;
   message: string;
   name: string;
-  subject: string;
 };
 
-export function buildMailtoLink({ email, message, name, subject }: ContactPayload) {
-  const encodedSubject = encodeURIComponent(subject || `Contato via portfolio - ${name}`);
-  const encodedMessage = encodeURIComponent(
-    `Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`,
-  );
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
-  return `mailto:jv9217096@gmail.com?subject=${encodedSubject}&body=${encodedMessage}`;
+export function isContactFormConfigured() {
+  return Boolean(FORMSPREE_ENDPOINT);
+}
+
+export async function submitContactForm(payload: ContactPayload) {
+  if (!FORMSPREE_ENDPOINT) {
+    throw new Error("Formspree endpoint not configured");
+  }
+
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw new Error("Unable to submit contact form");
+  }
 }

@@ -67,7 +67,7 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
 
     upsertMeta('meta[property="og:site_name"]', {
       property: "og:site_name",
-      content: "Joao Victor Alves de Abreu Portfolio",
+      content: "João Victor A. Abreu Portfolio",
     });
 
     upsertMeta('meta[property="og:locale"]', {

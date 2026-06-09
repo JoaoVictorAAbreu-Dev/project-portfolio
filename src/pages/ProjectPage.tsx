@@ -12,10 +12,10 @@ export function ProjectPage() {
   const project = projects.find((item) => item.slug === slug);
 
   usePageMeta({
-    title: project ? `${project.title} | Case Study` : "Projeto nao encontrado",
+    title: project ? `${project.title} | Case Study` : "Projeto não encontrado",
     description: project
-      ? `${project.title}: contexto, problema, solucao, arquitetura, desafios e melhorias futuras.`
-      : "Projeto nao encontrado no portfolio.",
+      ? `${project.title}: contexto, problema, solução, arquitetura, desafios e melhorias futuras.`
+      : "Projeto não encontrado no portfólio.",
     path: project ? `/projetos/${project.slug}` : "/404",
   });
 
@@ -24,13 +24,13 @@ export function ProjectPage() {
       <MainLayout>
         <div className="mx-auto max-w-4xl px-5 py-24 lg:px-8">
           <div className="glass-card">
-            <p className="eyebrow">Projeto nao encontrado</p>
+            <p className="eyebrow">Projeto não encontrado</p>
             <h1 className="mt-4 text-4xl font-semibold text-slate-950 dark:text-white">
-              O estudo de caso solicitado nao existe.
+              O estudo de caso solicitado não existe.
             </h1>
             <Link to="/" className="btn-primary mt-8 inline-flex">
               <FiArrowLeft />
-              Voltar para o portfolio
+              Voltar para o portfólio
             </Link>
           </div>
         </div>
@@ -43,7 +43,7 @@ export function ProjectPage() {
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-slate-950 dark:text-slate-300 dark:hover:text-white">
           <FiArrowLeft />
-          Voltar para o portfolio
+          Voltar para o portfólio
         </Link>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
@@ -88,12 +88,12 @@ export function ProjectPage() {
           <SectionHeading
             id="case-study-heading"
             eyebrow="Estudo de caso"
-            title="Contexto, problema, solucao e direcionamento tecnico."
+            title="Contexto, problema, solução e direcionamento técnico."
           />
           <div className="mt-10 grid gap-6">
             <CaseCard title="Contexto" content={[project.caseStudy.context]} />
             <CaseCard title="Problema" content={[project.caseStudy.problem]} />
-            <CaseCard title="Solucao" content={[project.caseStudy.solution]} />
+            <CaseCard title="Solução" content={[project.caseStudy.solution]} />
             <CaseCard title="Arquitetura" content={project.caseStudy.architecture} />
             <CaseCard title="Tecnologias" content={project.caseStudy.technologies} />
             <CaseCard title="Desafios" content={project.caseStudy.challenges} />

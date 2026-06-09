@@ -6,10 +6,10 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-slate-600 dark:text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>
           <p className="font-medium text-slate-900 dark:text-white">
-            Joao Victor Alves de Abreu
+            João Victor Alves de Abreu
           </p>
           <p className="mt-1">
-            Portfolio orientado a empregabilidade para estagio e vagas de Software Engineer Backend.
+            Portfólio com foco em backend, APIs, dados e projetos públicos de engenharia.
           </p>
         </div>
 
