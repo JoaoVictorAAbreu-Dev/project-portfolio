@@ -108,7 +108,7 @@ As rotas principais ficam em:
 O site tenta carregar automaticamente:
 
 ```text
-public/images/profile.jpg
+public/images/profile.webp
 ```
 
 Se a imagem nao existir, o Hero mostra o fallback com as iniciais `JV`.

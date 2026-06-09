@@ -3,7 +3,7 @@ import { siteConfig } from "../constants/site";
 
 export function ProfilePhoto() {
   const [imageError, setImageError] = useState(false);
-  const profileImageUrl = `${siteConfig.baseUrl}images/profile.jpg`;
+  const profileImageUrl = `${siteConfig.baseUrl}images/profile.webp`;
 
   return (
     <div className="relative mx-auto h-64 w-64 sm:h-80 sm:w-80">
