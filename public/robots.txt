@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://site-portifolio-lilac-alpha.vercel.app/sitemap.xml
+Sitemap: https://joao-victor-abreu-portfolio-jotas-projects-01e8afdf.vercel.app/sitemap.xml

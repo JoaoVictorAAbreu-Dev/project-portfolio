@@ -25,7 +25,7 @@ Use `.env.example` como base para um arquivo `.env` quando quiser customizar:
 
 Deploy oficial atual:
 
-- [site-portifolio-lilac-alpha.vercel.app](https://site-portifolio-lilac-alpha.vercel.app)
+- [joao-victor-abreu-portfolio-jotas-projects-01e8afdf.vercel.app](https://joao-victor-abreu-portfolio-jotas-projects-01e8afdf.vercel.app)
 
 Configuração recomendada no painel da Vercel:
 

@@ -1,5 +1,5 @@
 export const DEFAULT_SITE_URL =
-  "https://site-portifolio-lilac-alpha.vercel.app";
+  "https://joao-victor-abreu-portfolio-jotas-projects-01e8afdf.vercel.app";
 
 function normalizeUrl(url) {
   return url.replace(/\/$/, "");
