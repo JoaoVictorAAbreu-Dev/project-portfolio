@@ -14,10 +14,10 @@ export function ProjectPage() {
   usePageMeta({
     title: project
       ? `${project.title} | Estudo de caso`
-      : "Projeto nao encontrado",
+      : "Projeto não encontrado",
     description: project
-      ? `${project.title}: contexto, problema, solucao, arquitetura, desafios e melhorias futuras.`
-      : "Projeto nao encontrado no portfolio.",
+      ? `${project.title}: contexto, problema, solução, arquitetura, desafios e melhorias futuras.`
+      : "Projeto não encontrado no portfólio.",
     path: project ? `/projetos/${project.slug}` : "/404",
   });
 
@@ -26,13 +26,13 @@ export function ProjectPage() {
       <MainLayout>
         <div className="mx-auto max-w-4xl px-5 py-24 lg:px-8">
           <div className="glass-card">
-            <p className="eyebrow">Projeto nao encontrado</p>
+            <p className="eyebrow">Projeto não encontrado</p>
             <h1 className="mt-4 text-4xl font-semibold text-[#effff4]">
-              O estudo de caso solicitado nao existe.
+              O estudo de caso solicitado não existe.
             </h1>
             <Link to="/" className="btn-primary mt-8 inline-flex">
               <FiArrowLeft />
-              Voltar para o portfolio
+              Voltar para o portfólio
             </Link>
           </div>
         </div>
@@ -48,7 +48,7 @@ export function ProjectPage() {
           className="inline-flex items-center gap-2 text-sm text-[#9fd7b0] transition hover:text-[#effff4]"
         >
           <FiArrowLeft />
-          Voltar para o portfolio
+          Voltar para o portfólio
         </Link>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
@@ -58,7 +58,7 @@ export function ProjectPage() {
             <div className="glass-card">
               <div className="flex items-center justify-between gap-4">
                 <p className="eyebrow">{project.status}</p>
-                <span className="panel-chip">selected project</span>
+                <span className="panel-chip">projeto selecionado</span>
               </div>
               <h1 className="mt-4 text-3xl font-semibold text-[#effff4]">
                 {project.title}
@@ -77,7 +77,7 @@ export function ProjectPage() {
                 <ExternalLink
                   href={project.githubUrl}
                   className="btn-secondary"
-                  aria-label={`Abrir repositorio ${project.title} no GitHub em nova guia`}
+                  aria-label={`Abrir repositório ${project.title} no GitHub em nova guia`}
                   showNewTabText
                 >
                   <FiGithub />
@@ -87,7 +87,7 @@ export function ProjectPage() {
                   <ExternalLink
                     href={project.demoUrl}
                     className="btn-primary"
-                    aria-label={`Abrir demonstracao do projeto ${project.title} em nova guia`}
+                    aria-label={`Abrir demonstração do projeto ${project.title} em nova guia`}
                     showNewTabText
                   >
                     <FiArrowUpRight />
@@ -98,7 +98,7 @@ export function ProjectPage() {
             </div>
 
             <div className="terminal-card">
-              <p className="terminal-kicker">sinais tecnicos</p>
+              <p className="terminal-kicker">Sinais técnicos</p>
               <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[#a8dbb7] marker:text-[#74ff9f]">
                 {project.learnings.map((learning) => (
                   <li key={learning}>{learning}</li>
@@ -110,8 +110,8 @@ export function ProjectPage() {
           <div className="space-y-10">
             <SectionHeading
               eyebrow="Estudo de caso"
-              title="Pagina organizada para leitura rapida de contexto, estrutura e resultado."
-              description="Os blocos abaixo seguem um formato mais proximo do que recrutadores e avaliadores tecnicos procuram ao abrir estudos de caso."
+              title={`Como o ${project.title} foi estruturado do problema à solução.`}
+              description="Os blocos abaixo resumem contexto, decisão técnica, arquitetura e próximos passos de forma direta."
             />
 
             <div className="grid gap-6 lg:grid-cols-2">

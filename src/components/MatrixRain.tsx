@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const glyphs = "01<>[]{}()$#@+=-:;ABCDEFGHIJKLMNOPQRSTUVWXYZｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿ";
+const glyphs = "01<>[]{}()$#@+=-:;ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const frameInterval = 56;
 const fontSize = 15;
 const columnSpacing = 18;

@@ -1,25 +1,31 @@
-# Joao Victor Alves de Abreu - Portfolio
+# João Victor Alves de Abreu | Portfólio
 
-Portfolio profissional com curadoria de projetos voltada a recrutadores de Engenharia de Software. A interface foi refeita em tema Matrix para destacar identidade visual, enquanto o conteudo prioriza backend, arquitetura, APIs REST, dados e produto.
+Portfólio profissional com foco em recrutadores de Engenharia de Software. O projeto destaca backend, arquitetura, APIs, dados e produtos full stack por meio de uma curadoria enxuta de estudos de caso.
 
-## Stack principal
+## Stack
 
-React · Vite · TypeScript · Tailwind CSS · Framer Motion · React Icons
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Icons
 
-## Destaques desta versao
+## Destaques
 
-- tema visual inspirado em Matrix, com foco dark-first
-- curadoria dos repositorios mais fortes do GitHub
-- destaque para backend com Java, Spring Boot, FastAPI e PostgreSQL
-- SEO, sitemap e canonical preparados para deploy
-- formulario visual sem backend, com fallback para email
+- Tema visual inspirado em Matrix, com foco em legibilidade e contraste
+- Hero orientado a empregabilidade, com CTAs diretos para projetos, GitHub, LinkedIn e currículo
+- Projetos selecionados com resumo técnico e estudo de caso
+- Foto local com fallback automático para iniciais
+- Formulário visual sem backend, com fallback para `mailto`
+- SEO básico, sitemap e metadados preparados para deploy
 
 ## Projetos em destaque
 
-- DevTrack AI - https://github.com/JoaoVictorAAbreu-Dev/project-devtrack-ai
-- GreenOps Control Center - https://github.com/JoaoVictorAAbreu-Dev/project-greenops-control-center
-- Motiva ORION - https://github.com/JoaoVictorAAbreu-Dev/project-motiva-orion
-- TaskFlow Dev - https://github.com/JoaoVictorAAbreu-Dev/project-taskflow-dev-groq
+- DevTrack AI
+- GreenOps Control Center
+- Motiva ORION
+- TaskFlow Dev
 
 ## Como rodar localmente
 
@@ -28,33 +34,29 @@ npm install
 npm run dev
 ```
 
-## Build de producao
+## Build de produção
 
 ```bash
 npm run build
 ```
 
-## Variaveis opcionais
+## Variáveis opcionais
 
-Use `.env.example` como base para um arquivo `.env` quando quiser customizar:
+Use `.env.example` como base para criar um arquivo `.env`:
 
-- `VITE_SITE_URL`: URL publica usada em SEO e links canonicos
+- `VITE_SITE_URL`: URL pública usada em SEO e links canônicos
 - `VITE_BASE_PATH`: base path do projeto
-- `VITE_FORMSPREE_ENDPOINT`: endpoint do Formspree para ativar o formulario sem backend
+- `VITE_FORMSPREE_ENDPOINT`: endpoint do Formspree para ativar envio direto no formulário
 
 ## Deploy na Vercel
 
-Deploy oficial atual:
-
-- [joaovictorabreu-joaovictor-labs.vercel.app](https://joaovictorabreu-joaovictor-labs.vercel.app)
-
-Configuracao recomendada no painel da Vercel:
+Configuração recomendada:
 
 - Framework Preset: `Vite`
 - Build Command: `npm run build`
 - Output Directory: `dist`
 - Install Command: `npm install`
 
-Se quiser forcar a canonical para dominio proprio:
+Se quiser forçar a canonical para um domínio próprio:
 
-- adicione `VITE_SITE_URL=https://seu-dominio.com`
+- defina `VITE_SITE_URL=https://seu-dominio.com`

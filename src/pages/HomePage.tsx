@@ -1,18 +1,17 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import { FiCheckCircle, FiClock, FiGithub, FiLinkedin } from "react-icons/fi";
 import {
-  FiArrowRight,
-  FiCheckCircle,
-  FiClock,
-  FiDownload,
-  FiGithub,
-  FiLinkedin,
-  FiMail,
-  FiMapPin,
-  FiMessageSquare,
-  FiSend,
-  FiTerminal,
-} from "react-icons/fi";
+  HiOutlineArrowDownTray,
+  HiOutlineArrowRight,
+  HiOutlineBriefcase,
+  HiOutlineCommandLine,
+  HiOutlineEnvelope,
+  HiOutlineFolderOpen,
+  HiOutlineMapPin,
+  HiOutlineShieldCheck,
+} from "react-icons/hi2";
+import type { IconType } from "react-icons";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "../components/ExternalLink";
 import { ProfilePhoto } from "../components/ProfilePhoto";
@@ -39,17 +38,32 @@ type ContactField = "name" | "email" | "company" | "subject" | "message";
 type ContactErrors = Partial<Record<ContactField, string>>;
 
 const subjectOptions = [
-  "Oportunidade de estagio",
+  "Oportunidade de estágio",
   "Convite para entrevista",
   "Networking profissional",
   "Projeto freelance",
   "Outro assunto",
 ];
 
-const recruiterSignals = [
-  "Projetos primeiro, narrativa depois.",
-  "Estudos de caso com problema, arquitetura e resultado.",
-  "Motion contido para nao prejudicar leitura.",
+const summaryMetrics = [
+  {
+    icon: HiOutlineCommandLine,
+    label: "Foco técnico",
+    value: "Engenharia de backend",
+    note: "Java, Spring Boot, FastAPI, APIs REST e modelagem de dados.",
+  },
+  {
+    icon: HiOutlineFolderOpen,
+    label: "Curadoria",
+    value: "4 projetos fortes",
+    note: "Projetos com contexto, arquitetura e estudo de caso.",
+  },
+  {
+    icon: HiOutlineShieldCheck,
+    label: "Entrega",
+    value: "Setup reproduzível",
+    note: "Documentação, build local e estrutura preparada para avaliação.",
+  },
 ];
 
 export function HomePage() {
@@ -57,9 +71,9 @@ export function HomePage() {
   const resumeUrl = `${import.meta.env.BASE_URL}curriculo-joao-victor.pdf`;
 
   usePageMeta({
-    title: "Joao Victor Alves de Abreu | Backend Software Portfolio",
+    title: "João Victor Alves de Abreu | Portfólio Backend",
     description:
-      "Portfolio profissional com foco em backend, Java, Spring Boot, FastAPI, PostgreSQL, APIs REST e produtos orientados a decisao.",
+      "Portfólio profissional com foco em backend, Java, Spring Boot, FastAPI, PostgreSQL, APIs REST e produtos orientados à decisão.",
   });
 
   const reveal = (delay = 0) =>
@@ -83,61 +97,73 @@ export function HomePage() {
 
         <div className="flex flex-col justify-center">
           <motion.p {...reveal()} className="eyebrow">
-            portfolio layout // recruiter first
+            Portfólio de engenharia de software
           </motion.p>
+
           <motion.h1
             {...reveal(0.04)}
             id="hero-title"
             className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-[#effff4] sm:text-6xl"
           >
-            Backend portfolio com
-            <span className="headline-gradient"> projetos fortes, </span>
-            contexto tecnico e leitura direta.
+            Projetos de backend com
+            <span className="headline-gradient"> arquitetura, APIs </span>e
+            evolução consistente.
           </motion.h1>
+
           <motion.p
             {...reveal(0.08)}
             className="mt-5 max-w-2xl text-lg leading-8 text-[#a8dbb7]"
           >
-            Sou Joao Victor Alves de Abreu, estudante de Ciencia da Computacao
-            na FIAP. Estou construindo base em Java, Spring Boot, FastAPI,
-            PostgreSQL, autenticacao, APIs REST e produtos orientados a decisao.
+            Sou João Victor Alves de Abreu, estudante de Ciência da Computação
+            na FIAP. Estou construindo uma base sólida em Java, C#, .NET, Spring
+            Boot, FastAPI, PostgreSQL e boas práticas de desenvolvimento para
+            atuar em times de engenharia.
           </motion.p>
 
           <motion.div {...reveal(0.12)} className="mt-8 flex flex-wrap gap-3">
             <span className="data-chip">
-              <FiMapPin className="text-[#74ff9f]" />
-              Sao Paulo, SP
+              <HiOutlineMapPin className="text-[#74ff9f]" />
+              São Paulo, SP
             </span>
-            <span className="data-chip">4 projetos em destaque</span>
-            <span className="data-chip">Disponivel para estagio</span>
+            <span className="data-chip">
+              <HiOutlineCommandLine className="text-[#74ff9f]" />
+              Foco em backend
+            </span>
+            <span className="data-chip">
+              <HiOutlineBriefcase className="text-[#74ff9f]" />
+              Disponível para estágio
+            </span>
           </motion.div>
 
           <motion.div {...reveal(0.16)} className="mt-10 flex flex-wrap gap-4">
             <a href="#projetos" className="btn-primary">
-              <FiArrowRight />
-              Explorar projetos
+              <HiOutlineArrowRight />
+              Ver projetos
             </a>
+            <ExternalLink
+              href="https://github.com/JoaoVictorAAbreu-Dev"
+              className="btn-secondary"
+              aria-label="Abrir GitHub de João Victor em nova guia"
+              hideIcon
+              showNewTabText
+            >
+              <FiGithub />
+              GitHub
+            </ExternalLink>
+            <ExternalLink
+              href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
+              className="btn-secondary"
+              aria-label="Abrir LinkedIn de João Victor em nova guia"
+              hideIcon
+              showNewTabText
+            >
+              <FiLinkedin />
+              LinkedIn
+            </ExternalLink>
             <a href={resumeUrl} download className="btn-secondary">
-              <FiDownload />
-              Baixar curriculo
+              <HiOutlineArrowDownTray />
+              Baixar currículo
             </a>
-          </motion.div>
-
-          <motion.div
-            {...reveal(0.2)}
-            className="mt-10 terminal-card max-w-2xl"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <p className="terminal-kicker">why this layout</p>
-              <span className="panel-chip">updated</span>
-            </div>
-            <div className="mt-5 space-y-3 text-sm leading-7 text-[#a6deb7]">
-              {recruiterSignals.map((signal) => (
-                <p key={signal} className="font-mono">
-                  {">"} {signal}
-                </p>
-              ))}
-            </div>
           </motion.div>
         </div>
 
@@ -148,8 +174,8 @@ export function HomePage() {
           <ProfilePhoto />
           <div className="hero-panel">
             <div className="flex items-center justify-between gap-4">
-              <p className="eyebrow">current signal</p>
-              <span className="panel-chip">targeting internships</span>
+              <p className="eyebrow">Resumo executivo</p>
+              <span className="panel-chip">em busca de estágio</span>
             </div>
             <div className="mt-6 grid gap-4">
               {quickProfile.map((item) => (
@@ -164,53 +190,23 @@ export function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="matrix-divider my-6" />
-            <div className="flex flex-wrap gap-4 text-sm text-[#9fd7b0]">
-              <ExternalLink
-                href="https://github.com/JoaoVictorAAbreu-Dev"
-                className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
-                aria-label="Abrir GitHub de Joao Victor em nova guia"
-                showNewTabText
-              >
-                <FiGithub aria-hidden="true" />
-                GitHub
-              </ExternalLink>
-              <ExternalLink
-                href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
-                className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
-                aria-label="Abrir LinkedIn de Joao Victor em nova guia"
-                showNewTabText
-              >
-                <FiLinkedin aria-hidden="true" />
-                LinkedIn
-              </ExternalLink>
-            </div>
           </div>
         </motion.div>
       </section>
 
       <section className="section-shell pt-0">
-        <motion.div {...reveal(0.08)} className="grid gap-4 lg:grid-cols-4">
-          <SignalMetric
-            label="Foco principal"
-            value="Backend Engineering"
-            note="Java, Spring Boot, APIs e arquitetura"
-          />
-          <SignalMetric
-            label="Tipo de portfolio"
-            value="Projeto-first"
-            note="Repositorios fortes antes de texto institucional"
-          />
-          <SignalMetric
-            label="Leitura"
-            value="Case study"
-            note="Problema, stack, estrutura e resultado"
-          />
-          <SignalMetric
-            label="Tema"
-            value="Matrix"
-            note="Dark, motion sutil e ambiente tecnologico"
-          />
+        <motion.div {...reveal(0.08)} className="grid gap-4 lg:grid-cols-3">
+          {summaryMetrics.map((metric, index) => (
+            <SignalMetric
+              key={metric.label}
+              icon={metric.icon}
+              label={metric.label}
+              note={metric.note}
+              value={metric.value}
+              delay={index * 0.04}
+              reveal={reveal}
+            />
+          ))}
         </motion.div>
       </section>
 
@@ -222,8 +218,8 @@ export function HomePage() {
         <SectionHeading
           id="projetos-heading"
           eyebrow="Projetos"
-          title="Os projetos vem primeiro porque e neles que o portfolio realmente prova capacidade tecnica."
-          description="A curadoria abaixo segue um padrao comum dos portfolios mais fortes: miniaturas ricas, contexto objetivo e acesso rapido ao estudo de caso."
+          title="Projetos selecionados para demonstrar arquitetura, organização e clareza técnica."
+          description="Cada projeto resume problema, stack, estrutura e sinal técnico. O estudo de caso abre a visão completa da solução."
         />
         <div className="mt-12 grid gap-6 xl:grid-cols-12">
           {projects.map((project, index) => (
@@ -248,8 +244,8 @@ export function HomePage() {
             <SectionHeading
               id="sobre-heading"
               eyebrow="Sobre"
-              title="Clareza tecnica, evolucao consistente e foco em problemas de software que fazem sentido para produto."
-              description="Este portfolio foi reorganizado para comunicar melhor o que importa em selecao tecnica: criterio, profundidade de projeto e direcao de carreira."
+              title="Interesse real por backend, arquitetura de software e soluções técnicas que vão além do nível acadêmico."
+              description="Procuro transformar problemas concretos em software legível, bem estruturado e preparado para evoluir."
             />
             <div className="terminal-card space-y-4">
               {aboutPoints.map((point) => (
@@ -268,7 +264,7 @@ export function HomePage() {
                 className="surface-card"
               >
                 <div className="icon-badge">
-                  <Icon size={18} />
+                  <Icon size={20} />
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-[#effff4]">
                   {title}
@@ -290,7 +286,7 @@ export function HomePage() {
         <SectionHeading
           id="stack-heading"
           eyebrow="Stack"
-          title="Stack organizada por area, com foco no que aparece com mais densidade tecnica nos repositorios selecionados."
+          title="Stack organizada por área, com ênfase no que aparece com mais densidade técnica nos projetos."
         />
         <div className="mt-12 grid gap-6 xl:grid-cols-2">
           {skillCategories.map((category, index) => (
@@ -303,7 +299,7 @@ export function HomePage() {
                 <h3 className="text-2xl font-semibold text-[#effff4]">
                   {category.category}
                 </h3>
-                <span className="panel-chip">stack block</span>
+                <span className="panel-chip">stack principal</span>
               </div>
               <div className="mt-6 grid gap-4">
                 {category.items.map((item) => (
@@ -340,7 +336,7 @@ export function HomePage() {
         <SectionHeading
           id="jornada-heading"
           eyebrow="Jornada"
-          title="Linha de evolucao organizada como log tecnico, sem excesso de texto e sem perder contexto."
+          title="Evolução acadêmica e prática organizada em uma linha direta de crescimento."
         />
         <ol className="mt-12 space-y-5">
           {timeline.map((item, index) => (
@@ -372,7 +368,8 @@ export function HomePage() {
         <SectionHeading
           id="contato-heading"
           eyebrow="Contato"
-          title="Contato direto, formulario limpo e caminhos simples para recrutadores."
+          title="Contato direto para oportunidades, entrevistas e networking profissional."
+          description="O formulário abre o cliente de email quando não há endpoint configurado. Se houver integração ativa, o envio ocorre diretamente pelo site."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
           <address className="grid gap-4 not-italic">
@@ -391,7 +388,7 @@ export function HomePage() {
                   }
                 >
                   <div className="icon-badge">
-                    <Icon size={18} aria-hidden="true" />
+                    <Icon size={20} aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-[#87c69b]">{label}</p>
@@ -410,20 +407,29 @@ export function HomePage() {
 }
 
 function SignalMetric({
+  icon: Icon,
   label,
   value,
   note,
+  delay,
+  reveal,
 }: {
+  icon: IconType;
   label: string;
   value: string;
   note: string;
+  delay: number;
+  reveal: (delay?: number) => Record<string, unknown>;
 }) {
   return (
-    <div className="surface-card">
-      <p className="terminal-kicker">{label}</p>
+    <motion.div {...reveal(delay)} className="surface-card">
+      <div className="icon-badge h-11 w-11 rounded-xl">
+        <Icon size={18} />
+      </div>
+      <p className="mt-4 terminal-kicker">{label}</p>
       <p className="mt-3 text-2xl font-semibold text-[#effff4]">{value}</p>
       <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">{note}</p>
-    </div>
+    </motion.div>
   );
 }
 
@@ -461,7 +467,7 @@ function ProjectCard({
         <div className="mt-6 rounded-[1.6rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,11,5,0.9)] p-5">
           <div className="flex items-center justify-between gap-4">
             <p className="terminal-kicker">{project.imageLabel}</p>
-            <span className="panel-chip">selected repo</span>
+            <span className="panel-chip">visão rápida</span>
           </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.1)] bg-[rgba(7,18,10,0.84)] p-4">
@@ -503,13 +509,13 @@ function ProjectCard({
           }`}
         >
           <div className="surface-card">
-            <p className="terminal-kicker">problema</p>
+            <p className="terminal-kicker">Problema</p>
             <p className="mt-3 text-sm leading-7 text-[#a8dbb7]">
               {project.problemSolved}
             </p>
           </div>
           <div className="surface-card">
-            <p className="terminal-kicker">estrutura</p>
+            <p className="terminal-kicker">Estrutura</p>
             <p className="mt-3 text-sm leading-7 text-[#a8dbb7]">
               {project.architectureUsed}
             </p>
@@ -517,7 +523,7 @@ function ProjectCard({
         </div>
 
         <div className="mt-6 surface-card">
-          <p className="terminal-kicker">o que este projeto sinaliza</p>
+          <p className="terminal-kicker">O que este projeto sinaliza</p>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-[#a8dbb7] marker:text-[#74ff9f]">
             {project.learnings.slice(0, isFeatured ? 3 : 2).map((learning) => (
               <li key={learning}>{learning}</li>
@@ -529,13 +535,15 @@ function ProjectCard({
           <ExternalLink
             href={project.githubUrl}
             className="btn-secondary"
-            aria-label={`Abrir repositorio ${project.title} no GitHub em nova guia`}
+            aria-label={`Abrir repositório ${project.title} no GitHub em nova guia`}
+            hideIcon
             showNewTabText
           >
             <FiGithub />
-            Repositorio
+            Repositório
           </ExternalLink>
           <Link to={`/projetos/${project.slug}`} className="btn-primary">
+            <HiOutlineArrowRight />
             Ver estudo de caso
           </Link>
         </div>
@@ -569,12 +577,12 @@ function ContactForm() {
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      nextErrors.email = "Informe um email valido para retorno.";
+      nextErrors.email = "Informe um email válido para retorno.";
     }
 
     if (company.trim().length > 80) {
       nextErrors.company =
-        "O nome da empresa deve ter no maximo 80 caracteres.";
+        "O nome da empresa deve ter no máximo 80 caracteres.";
     }
 
     if (!subject.trim()) {
@@ -583,7 +591,7 @@ function ContactForm() {
 
     if (message.trim().length < 24) {
       nextErrors.message =
-        "Descreva a oportunidade ou contexto com pelo menos 24 caracteres.";
+        "Descreva a oportunidade ou o contexto com pelo menos 24 caracteres.";
     }
 
     return nextErrors;
@@ -633,16 +641,15 @@ function ContactForm() {
     <div className="glass-card">
       <div className="flex items-start gap-3">
         <div className="icon-badge h-11 w-11 shrink-0 rounded-xl">
-          <FiTerminal size={18} aria-hidden="true" />
+          <HiOutlineEnvelope size={18} aria-hidden="true" />
         </div>
         <div>
           <h3 className="text-xl font-semibold text-[#effff4]">
-            Formulario de contato
+            Formulário de contato
           </h3>
           <p className="mt-2 text-sm leading-7 text-[#a8dbb7]">
-            O layout foi simplificado para facilitar contato rapido. Sem
-            endpoint configurado, o formulario abre o cliente de email com o
-            texto pronto.
+            Use este formulário para oportunidades de estágio, entrevistas,
+            networking profissional ou conversas sobre projetos.
           </p>
         </div>
       </div>
@@ -650,11 +657,13 @@ function ContactForm() {
       <div className="mt-6 grid gap-3 rounded-[1.5rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,13,7,0.88)] p-4 sm:grid-cols-3">
         <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.82)] px-4 py-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
-            <FiSend className="text-[#72ff9d]" />
-            Envio
+            <HiOutlineEnvelope className="text-[#72ff9d]" />
+            Canal
           </p>
           <p className="mt-2 text-sm text-[#9fd7b0]">
-            {configured ? "Direto pelo site" : "Abre email pronto"}
+            {configured
+              ? "Envio direto pelo site"
+              : "Abertura no cliente de email"}
           </p>
         </div>
         <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.82)] px-4 py-4">
@@ -663,16 +672,16 @@ function ContactForm() {
             Retorno
           </p>
           <p className="mt-2 text-sm text-[#9fd7b0]">
-            Preferencialmente em ate 48h
+            Preferencialmente em até 48h
           </p>
         </div>
         <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.82)] px-4 py-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
-            <FiMessageSquare className="text-[#72ff9d]" />
+            <HiOutlineBriefcase className="text-[#72ff9d]" />
             Melhor uso
           </p>
           <p className="mt-2 text-sm text-[#9fd7b0]">
-            Estagio, entrevista e networking
+            Estágio, entrevista e contato profissional
           </p>
         </div>
       </div>
@@ -757,7 +766,7 @@ function ContactForm() {
               </small>
             ) : (
               <small id="contact-company-help" className="field-help">
-                Opcional, mas ajuda a contextualizar o contato.
+                Opcional, mas útil para contextualizar o contato.
               </small>
             )}
           </label>
@@ -847,7 +856,7 @@ function ContactForm() {
           ) : null}
           {status === "error" ? (
             <p role="alert" className="text-sm text-[#ff9898]">
-              Revise os campos obrigatorios para continuar. Se preferir, use
+              Revise os campos obrigatórios para continuar. Se preferir, use
               email ou LinkedIn.
             </p>
           ) : null}
@@ -859,7 +868,7 @@ function ContactForm() {
             className="btn-primary w-full justify-center sm:w-auto"
             disabled={status === "sending"}
           >
-            <FiArrowRight />
+            <HiOutlineArrowRight />
             {status === "sending"
               ? "Enviando..."
               : configured
@@ -871,14 +880,15 @@ function ContactForm() {
             href="mailto:joaovictoralvesabreu1@gmail.com"
             className="btn-secondary w-full justify-center sm:w-auto"
           >
-            <FiMail />
+            <HiOutlineEnvelope />
             Email direto
           </a>
 
           <ExternalLink
             href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
             className="btn-secondary w-full justify-center sm:w-auto"
-            aria-label="Abrir LinkedIn de Joao Victor em nova guia"
+            aria-label="Abrir LinkedIn de João Victor em nova guia"
+            hideIcon
             showNewTabText
           >
             <FiLinkedin />

@@ -13,12 +13,12 @@ export function ProjectVisual({ label }: ProjectVisualProps) {
             <span className="h-3 w-3 rounded-full bg-[#2b8747]" />
             <span className="h-3 w-3 rounded-full bg-[#8effb4]" />
           </div>
-          <span className="panel-chip">project frame</span>
+          <span className="panel-chip">estrutura visual</span>
         </div>
         <div className="rounded-[1.5rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,11,5,0.92)] p-5">
           <div className="flex items-center justify-between gap-4">
             <p className="terminal-kicker">{label}</p>
-            <span className="panel-chip">case study</span>
+            <span className="panel-chip">estudo de caso</span>
           </div>
           <div className="mt-6 grid gap-3">
             <div className="grid grid-cols-[1.15fr_0.85fr] gap-3">

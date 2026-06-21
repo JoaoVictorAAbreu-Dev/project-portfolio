@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { FiArrowRight, FiDownload, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
+import { HiOutlineArrowDownTray, HiOutlineArrowRight } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import { navItems } from "../data/portfolio";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const resumeUrl = `${import.meta.env.BASE_URL}curriculo-joao-victor.pdf`;
+  const sectionHref = (hash: string) => `${import.meta.env.BASE_URL}${hash}`;
 
   useEffect(() => {
     if (!open) {
@@ -31,22 +33,22 @@ export function Header() {
           </span>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-[#f1fff5]">
-              Joao Victor Alves de Abreu
+              João Victor Alves de Abreu
             </p>
             <p className="truncate text-xs uppercase tracking-[0.18em] text-[#88d7a2]">
-              software engineer portfolio
+              Portfólio de engenharia de software
             </p>
           </div>
         </NavLink>
 
         <nav
           className="hidden items-center gap-2 rounded-full border border-[rgba(76,255,139,0.12)] bg-[rgba(5,16,8,0.76)] px-3 py-2 lg:flex"
-          aria-label="Navegacao principal"
+          aria-label="Navegação principal"
         >
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={sectionHref(item.href)}
               className="rounded-full px-4 py-2 text-sm text-[#a5ebbc] transition hover:bg-[rgba(76,255,139,0.08)] hover:text-[#f1fff5]"
             >
               {item.label}
@@ -56,11 +58,11 @@ export function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a href={resumeUrl} download className="btn-secondary">
-            <FiDownload />
-            Curriculo
+            <HiOutlineArrowDownTray />
+            Currículo
           </a>
-          <a href="#contato" className="btn-primary">
-            <FiArrowRight />
+          <a href={sectionHref("#contato")} className="btn-primary">
+            <HiOutlineArrowRight />
             Contato
           </a>
         </div>
@@ -80,14 +82,14 @@ export function Header() {
       {open ? (
         <div
           id="mobile-navigation"
-          aria-label="Navegacao mobile"
+          aria-label="Navegação mobile"
           className="border-t border-[rgba(76,255,139,0.12)] px-5 py-4 lg:hidden"
         >
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={sectionHref(item.href)}
                 onClick={() => setOpen(false)}
                 className="rounded-2xl px-4 py-3 text-sm font-medium text-[#a5ebbc] transition hover:bg-[rgba(76,255,139,0.08)] hover:text-[#f1fff5]"
               >
@@ -100,7 +102,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="rounded-2xl border border-[rgba(76,255,139,0.14)] px-4 py-3 text-sm font-medium text-[#f1fff5]"
             >
-              Baixar curriculo
+              Baixar currículo
             </a>
           </div>
         </div>

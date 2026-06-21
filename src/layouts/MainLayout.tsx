@@ -15,7 +15,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
         href="#conteudo-principal"
         className="absolute left-4 top-4 z-[70] -translate-y-20 rounded-full border border-[rgba(76,255,139,0.26)] bg-[#031108] px-4 py-2 text-sm font-medium text-[#ddffe9] transition focus:translate-y-0"
       >
-        Pular para o conteudo
+        Pular para o conteúdo
       </a>
       <MatrixRain />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(76,255,139,0.12),_transparent_24%),radial-gradient(circle_at_85%_12%,_rgba(76,255,139,0.08),_transparent_18%),linear-gradient(180deg,rgba(3,13,7,0.86),rgba(1,5,2,0.92))]" />
