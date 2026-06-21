@@ -11,6 +11,7 @@ import {
   FiMapPin,
   FiMessageSquare,
   FiSend,
+  FiTerminal,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "../components/ExternalLink";
@@ -38,7 +39,7 @@ type ContactField = "name" | "email" | "company" | "subject" | "message";
 type ContactErrors = Partial<Record<ContactField, string>>;
 
 const subjectOptions = [
-  "Oportunidade de estágio",
+  "Oportunidade de estagio",
   "Convite para entrevista",
   "Networking profissional",
   "Projeto freelance",
@@ -50,9 +51,9 @@ export function HomePage() {
   const resumeUrl = `${import.meta.env.BASE_URL}curriculo-joao-victor.pdf`;
 
   usePageMeta({
-    title: "João Victor A. Abreu | Backend Engineer Portfolio",
+    title: "Joao Victor Alves de Abreu | Backend Software Portfolio",
     description:
-      "Portfólio profissional com foco em backend, FastAPI, machine learning aplicado, APIs REST e arquitetura de software.",
+      "Portfolio profissional com foco em backend, Java, Spring Boot, FastAPI, PostgreSQL, APIs REST e produtos orientados a decisao.",
   });
 
   const reveal = (delay = 0) =>
@@ -69,35 +70,35 @@ export function HomePage() {
     <MainLayout>
       <section
         aria-labelledby="hero-title"
-        className="relative mx-auto grid max-w-7xl gap-12 overflow-hidden px-5 pb-18 pt-14 lg:grid-cols-[1.12fr_0.88fr] lg:px-8 lg:pb-24 lg:pt-18"
+        className="relative mx-auto grid max-w-7xl gap-12 overflow-hidden px-5 pb-18 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-24 lg:pt-18"
       >
-        <div className="hero-orb right-[8%] top-[6%] h-36 w-36 bg-brand-500/14" />
-        <div className="hero-orb left-[4%] top-[34%] h-24 w-24 bg-cyan-300/14" />
+        <div className="hero-orb right-[6%] top-[8%] h-32 w-32 bg-[rgba(29,212,90,0.12)]" />
+        <div className="hero-orb left-[4%] top-[38%] h-24 w-24 bg-[rgba(76,255,139,0.12)]" />
 
         <div className="flex flex-col justify-center">
           <motion.p {...reveal()} className="eyebrow">
-            Backend portfolio
+            backend signal // selected portfolio
           </motion.p>
           <motion.h1
             {...reveal(0.04)}
             id="hero-title"
-            className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl"
+            className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-[#effff4] sm:text-6xl"
           >
-            João Victor Alves de Abreu
+            Joao Victor Alves de Abreu
           </motion.h1>
           <motion.p
             {...reveal(0.08)}
-            className="mt-5 text-lg font-semibold text-slate-800 dark:text-slate-100 sm:text-2xl"
+            className="mt-5 text-lg font-semibold text-[#c6ffda] sm:text-2xl"
           >
-            Backend Engineer · Python · FastAPI · Java · ML
+            Estudante de Ciencia da Computacao | Backend Developer em formacao
           </motion.p>
           <motion.p
             {...reveal(0.12)}
-            className="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300"
+            className="mt-6 max-w-2xl text-base leading-8 text-[#9fd7b0]"
           >
-            Construo APIs, produtos orientados a dados e sistemas que
-            transformam informação técnica em fluxo operacional, análise e
-            decisão.
+            Construo APIs, produtos full stack e sistemas orientados a decisao
+            com foco em Java, Spring Boot, FastAPI, PostgreSQL, autenticacao,
+            regras de negocio e clareza tecnica.
           </motion.p>
 
           <motion.div {...reveal(0.16)} className="mt-10 flex flex-wrap gap-4">
@@ -107,25 +108,22 @@ export function HomePage() {
             </a>
             <a href={resumeUrl} download className="btn-secondary">
               <FiDownload />
-              Baixar currículo
+              Baixar curriculo
             </a>
           </motion.div>
 
           <motion.div
             {...reveal(0.2)}
-            className="mt-8 flex flex-wrap items-center gap-5 text-sm text-slate-600 dark:text-slate-300"
+            className="mt-8 flex flex-wrap items-center gap-5 text-sm text-[#9fd7b0]"
           >
             <span className="inline-flex items-center gap-2">
-              <FiMapPin
-                aria-hidden="true"
-                className="text-brand-600 dark:text-cyan-300"
-              />
-              São Paulo, SP
+              <FiMapPin aria-hidden="true" className="text-[#72ff9d]" />
+              Sao Paulo, SP
             </span>
             <ExternalLink
               href="https://github.com/JoaoVictorAAbreu-Dev"
-              className="inline-flex items-center gap-2 transition hover:text-slate-950 dark:hover:text-white"
-              aria-label="Abrir GitHub de João Victor em nova guia"
+              className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
+              aria-label="Abrir GitHub de Joao Victor em nova guia"
               showNewTabText
             >
               <FiGithub aria-hidden="true" />
@@ -133,8 +131,8 @@ export function HomePage() {
             </ExternalLink>
             <ExternalLink
               href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
-              className="inline-flex items-center gap-2 transition hover:text-slate-950 dark:hover:text-white"
-              aria-label="Abrir LinkedIn de João Victor em nova guia"
+              className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
+              aria-label="Abrir LinkedIn de Joao Victor em nova guia"
               showNewTabText
             >
               <FiLinkedin aria-hidden="true" />
@@ -149,22 +147,53 @@ export function HomePage() {
         >
           <ProfilePhoto />
           <div className="hero-panel">
-            <p className="eyebrow">Base atual</p>
+            <div className="flex items-center justify-between gap-4">
+              <p className="eyebrow">system snapshot</p>
+              <span className="tag">available for internship</span>
+            </div>
             <div className="mt-5 grid gap-4">
               {quickProfile.map((item) => (
                 <div
                   key={item.label}
-                  className="flex flex-col gap-1 border-b border-slate-200/80 pb-4 last:border-0 last:pb-0 dark:border-white/10"
+                  className="flex flex-col gap-1 border-b border-[rgba(76,255,139,0.12)] pb-4 last:border-0 last:pb-0"
                 >
-                  <span className="text-sm text-slate-500 dark:text-slate-400">
-                    {item.label}
-                  </span>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    {item.value}
-                  </span>
+                  <span className="text-sm text-[#88c49b]">{item.label}</span>
+                  <span className="font-medium text-[#effff4]">{item.value}</span>
                 </div>
               ))}
             </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="section-shell pt-0">
+        <motion.div
+          {...reveal(0.1)}
+          className="matrix-terminal grid gap-4 lg:grid-cols-[1.2fr_0.8fr_0.8fr]"
+        >
+          <div>
+            <p className="eyebrow">portfolio log</p>
+            <p className="matrix-code mt-4 text-sm leading-7 text-[#a7e9bb]">
+              {">"} repositories analyzed: 4 selected
+              <br />
+              {">"} focus: backend, architecture, APIs, data
+              <br />
+              {">"} current track: software engineering internship
+            </p>
+          </div>
+          <div className="mini-stat">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#8ff6b3]">
+              main stack
+            </p>
+            <p className="mt-3 text-lg font-semibold text-[#effff4]">
+              Java, Spring Boot, FastAPI
+            </p>
+          </div>
+          <div className="mini-stat">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#8ff6b3]">
+              repos em destaque
+            </p>
+            <p className="mt-3 text-lg font-semibold text-[#effff4]">4</p>
           </div>
         </motion.div>
       </section>
@@ -177,16 +206,13 @@ export function HomePage() {
         <SectionHeading
           id="sobre-heading"
           eyebrow="Sobre"
-          title="Perfil técnico orientado a backend, dados e evolução consistente de engenharia."
-          description="O objetivo deste portfólio é mostrar repertório real, clareza de raciocínio e potencial de crescimento com base em projetos públicos."
+          title="Perfil tecnico orientado a backend, modelagem de produto e crescimento consistente de engenharia."
+          description="A curadoria do portfolio foi refeita a partir dos seus melhores repositorios publicos para destacar projetos mais fortes para recrutadores."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div {...reveal()} className="glass-card space-y-5">
             {aboutPoints.map((point) => (
-              <p
-                key={point}
-                className="text-base leading-8 text-slate-600 dark:text-slate-300"
-              >
+              <p key={point} className="text-base leading-8 text-[#9fd7b0]">
                 {point}
               </p>
             ))}
@@ -201,10 +227,10 @@ export function HomePage() {
                 <div className="icon-badge">
                   <Icon size={18} />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-950 dark:text-white">
+                <h3 className="mt-5 text-xl font-semibold text-[#effff4]">
                   {title}
                 </h3>
-                <p className="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
+                <p className="mt-3 text-base leading-7 text-[#9fd7b0]">
                   {description}
                 </p>
               </motion.article>
@@ -221,7 +247,7 @@ export function HomePage() {
         <SectionHeading
           id="stack-heading"
           eyebrow="Stack"
-          title="Tecnologias organizadas por área, com foco prático em backend, dados e produtos web."
+          title="Tecnologias organizadas por area, priorizando o que aparece com mais forca nos repositorios selecionados."
         />
         <div className="mt-12 grid gap-6 xl:grid-cols-2">
           {skillCategories.map((category, index) => (
@@ -230,7 +256,7 @@ export function HomePage() {
               {...reveal(0.04 * index)}
               className="glass-card"
             >
-              <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">
+              <h3 className="text-2xl font-semibold text-[#effff4]">
                 {category.category}
               </h3>
               <div className="mt-6 grid gap-4">
@@ -242,12 +268,12 @@ export function HomePage() {
                       </div>
                       <div>
                         <div className="flex flex-wrap items-center gap-3">
-                          <h4 className="text-lg font-semibold text-slate-950 dark:text-white">
+                          <h4 className="text-lg font-semibold text-[#effff4]">
                             {item.name}
                           </h4>
                           <span className="tag">{item.level}</span>
                         </div>
-                        <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                        <p className="mt-3 text-sm leading-7 text-[#9fd7b0]">
                           {item.description}
                         </p>
                       </div>
@@ -268,8 +294,8 @@ export function HomePage() {
         <SectionHeading
           id="projetos-heading"
           eyebrow="Projetos"
-          title="Quatro projetos públicos que representam meu foco técnico hoje."
-          description="Cada projeto foi escolhido por demonstrar backend, integração, dados ou profundidade arquitetural de forma concreta."
+          title="Projetos escolhidos por densidade tecnica, clareza de arquitetura e aderencia a vagas de engenharia."
+          description="A selecao prioriza repositorios com proposta forte de backend, produto mais maduro e melhor narrativa para entrevista tecnica."
         />
         <div className="mt-12 grid gap-6 xl:grid-cols-2">
           {projects.map((project, index) => (
@@ -282,17 +308,17 @@ export function HomePage() {
             >
               <div className="flex items-center justify-between gap-4">
                 <span className="eyebrow">{project.status}</span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">
+                <span className="text-sm text-[#8cc7a1]">
                   {project.shortTitle}
                 </span>
               </div>
               <h3
                 id={`${project.slug}-title`}
-                className="mt-4 text-2xl font-semibold text-slate-950 dark:text-white"
+                className="mt-4 text-2xl font-semibold text-[#effff4]"
               >
                 {project.title}
               </h3>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">
+              <p className="mt-4 text-base leading-8 text-[#9fd7b0]">
                 {project.description}
               </p>
 
@@ -306,18 +332,18 @@ export function HomePage() {
 
               <div className="mt-6 space-y-4">
                 <div>
-                  <p className="text-sm font-semibold text-slate-950 dark:text-white">
-                    O que o sistema faz
+                  <p className="text-sm font-semibold text-[#effff4]">
+                    O que o sistema resolve
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">
                     {project.problemSolved}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-950 dark:text-white">
+                  <p className="text-sm font-semibold text-[#effff4]">
                     Como foi estruturado
                   </p>
-                  <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">
                     {project.architectureUsed}
                   </p>
                 </div>
@@ -327,11 +353,11 @@ export function HomePage() {
                 <ExternalLink
                   href={project.githubUrl}
                   className="btn-secondary"
-                  aria-label={`Abrir repositório ${project.title} no GitHub em nova guia`}
+                  aria-label={`Abrir repositorio ${project.title} no GitHub em nova guia`}
                   showNewTabText
                 >
                   <FiGithub />
-                  Repositório
+                  Repositorio
                 </ExternalLink>
                 <Link to={`/projetos/${project.slug}`} className="btn-primary">
                   Ver estudo de caso
@@ -350,7 +376,7 @@ export function HomePage() {
         <SectionHeading
           id="jornada-heading"
           eyebrow="Jornada"
-          title="Marcos que mostram a direção técnica da minha formação."
+          title="Linha de evolucao pensada para estagio em engenharia de software."
         />
         <ol className="mt-12 space-y-5">
           {timeline.map((item, index) => (
@@ -360,14 +386,14 @@ export function HomePage() {
               className="list-none"
             >
               <article className="glass-card relative overflow-hidden pl-8">
-                <div className="absolute left-0 top-0 h-full w-1 rounded-full bg-gradient-to-b from-brand-600 to-cyan-300" />
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-600 dark:text-cyan-300">
+                <div className="absolute left-0 top-0 h-full w-1 rounded-full bg-[linear-gradient(180deg,#1dd45a,#91ffb8)]" />
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#72ff9d]">
                   {item.period}
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold text-slate-950 dark:text-white">
+                <h3 className="mt-3 text-2xl font-semibold text-[#effff4]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-base leading-8 text-slate-600 dark:text-slate-300">
+                <p className="mt-3 text-base leading-8 text-[#9fd7b0]">
                   {item.description}
                 </p>
               </article>
@@ -384,7 +410,7 @@ export function HomePage() {
         <SectionHeading
           id="contato-heading"
           eyebrow="Contato"
-          title="Canais diretos para recrutadores, networking técnico e conversas sobre projetos."
+          title="Canal direto para oportunidades, entrevistas e conversas tecnicas."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
           <address className="grid gap-4 not-italic">
@@ -394,7 +420,7 @@ export function HomePage() {
                   key={label}
                   href={href}
                   target={external ? "_blank" : undefined}
-                  rel={external ? "noreferrer" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
                   className="glass-card flex items-center gap-4"
                   aria-label={
                     external
@@ -406,12 +432,8 @@ export function HomePage() {
                     <Icon size={18} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      {label}
-                    </p>
-                    <p className="mt-1 font-medium text-slate-950 dark:text-white">
-                      {value}
-                    </p>
+                    <p className="text-sm text-[#88c49b]">{label}</p>
+                    <p className="mt-1 font-medium text-[#effff4]">{value}</p>
                   </div>
                 </a>
               ),
@@ -450,12 +472,12 @@ function ContactForm() {
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      nextErrors.email = "Informe um email válido para retorno.";
+      nextErrors.email = "Informe um email valido para retorno.";
     }
 
     if (company.trim().length > 80) {
       nextErrors.company =
-        "O nome da empresa deve ter no máximo 80 caracteres.";
+        "O nome da empresa deve ter no maximo 80 caracteres.";
     }
 
     if (!subject.trim()) {
@@ -514,46 +536,46 @@ function ContactForm() {
     <div className="glass-card">
       <div className="flex items-start gap-3">
         <div className="icon-badge h-11 w-11 shrink-0 rounded-xl">
-          <FiMail size={18} aria-hidden="true" />
+          <FiTerminal size={18} aria-hidden="true" />
         </div>
         <div>
-          <h3 className="text-xl font-semibold text-slate-950 dark:text-white">
-            Formulário de contato
+          <h3 className="text-xl font-semibold text-[#effff4]">
+            Canal de contato
           </h3>
-          <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
+          <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">
             Preencha os dados do contato. Quando o endpoint estiver ativo, a
-            mensagem é enviada direto pelo site. Sem endpoint, o formulário abre
-            seu cliente de email com a mensagem pronta.
+            mensagem sera enviada direto pelo site. Sem endpoint, o formulario
+            abre o cliente de email com o texto preparado.
           </p>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 rounded-[1.5rem] border border-slate-200/80 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.03] sm:grid-cols-3">
-        <div className="rounded-[1.2rem] border border-slate-200/80 bg-white/70 px-4 py-4 dark:border-white/10 dark:bg-white/[0.03]">
-          <p className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <FiSend className="text-brand-600 dark:text-cyan-300" />
+      <div className="mt-6 grid gap-3 rounded-[1.5rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,13,7,0.9)] p-4 sm:grid-cols-3">
+        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.84)] px-4 py-4">
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
+            <FiSend className="text-[#72ff9d]" />
             Envio
           </p>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+          <p className="mt-2 text-sm text-[#9fd7b0]">
             {configured ? "Direto pelo site" : "Abre email pronto"}
           </p>
         </div>
-        <div className="rounded-[1.2rem] border border-slate-200/80 bg-white/70 px-4 py-4 dark:border-white/10 dark:bg-white/[0.03]">
-          <p className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <FiClock className="text-brand-600 dark:text-cyan-300" />
+        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.84)] px-4 py-4">
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
+            <FiClock className="text-[#72ff9d]" />
             Retorno
           </p>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-            Preferencialmente em até 48h
+          <p className="mt-2 text-sm text-[#9fd7b0]">
+            Preferencialmente em ate 48h
           </p>
         </div>
-        <div className="rounded-[1.2rem] border border-slate-200/80 bg-white/70 px-4 py-4 dark:border-white/10 dark:bg-white/[0.03]">
-          <p className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <FiMessageSquare className="text-brand-600 dark:text-cyan-300" />
-            Ideal para
+        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.84)] px-4 py-4">
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
+            <FiMessageSquare className="text-[#72ff9d]" />
+            Melhor uso
           </p>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-            Estágio, networking e projetos
+          <p className="mt-2 text-sm text-[#9fd7b0]">
+            Estagio, entrevista e networking
           </p>
         </div>
       </div>
@@ -674,14 +696,12 @@ function ContactForm() {
 
         <label htmlFor="contact-message" className="field-shell mt-5">
           <div className="mb-2 flex items-center justify-between gap-3">
-            <span className="mb-0 block text-sm font-medium text-slate-600 dark:text-slate-300">
+            <span className="mb-0 block text-sm font-medium text-[#b5f7ca]">
               Mensagem
             </span>
             <span
               className={`text-xs ${
-                remainingCharacters < 80
-                  ? "text-amber-600 dark:text-amber-300"
-                  : "text-slate-500 dark:text-slate-400"
+                remainingCharacters < 80 ? "text-[#ffd18b]" : "text-[#89c79e]"
               }`}
             >
               {message.length}/500
@@ -694,7 +714,7 @@ function ContactForm() {
             required
             minLength={24}
             maxLength={500}
-            placeholder="Descreva a oportunidade, contexto da vaga, stack desejada ou objetivo da conversa."
+            placeholder="Descreva a oportunidade, a vaga, o contexto do contato ou o objetivo da conversa."
             value={message}
             onChange={(event) => {
               resetStatus();
@@ -720,7 +740,7 @@ function ContactForm() {
           {status === "sent" ? (
             <p
               role="status"
-              className="inline-flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-300"
+              className="inline-flex items-center gap-2 text-sm text-[#8dffb7]"
             >
               <FiCheckCircle aria-hidden="true" />
               {configured
@@ -729,11 +749,8 @@ function ContactForm() {
             </p>
           ) : null}
           {status === "error" ? (
-            <p
-              role="alert"
-              className="text-sm text-rose-600 dark:text-rose-300"
-            >
-              Revise os campos obrigatórios para continuar. Se preferir, use
+            <p role="alert" className="text-sm text-[#ff9898]">
+              Revise os campos obrigatorios para continuar. Se preferir, use
               email ou LinkedIn.
             </p>
           ) : null}
@@ -764,7 +781,7 @@ function ContactForm() {
           <ExternalLink
             href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
             className="btn-secondary w-full justify-center sm:w-auto"
-            aria-label="Abrir LinkedIn de João Victor em nova guia"
+            aria-label="Abrir LinkedIn de Joao Victor em nova guia"
             showNewTabText
           >
             <FiLinkedin />

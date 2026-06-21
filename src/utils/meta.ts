@@ -38,9 +38,7 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
   useEffect(() => {
     const baseSiteUrl = siteConfig.siteUrl.replace(/\/$/, "");
     const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-    const absoluteUrl = window.location.hash.startsWith("#/")
-      ? `${baseSiteUrl}/#${normalizedPath}`
-      : `${baseSiteUrl}${normalizedPath}`;
+    const absoluteUrl = `${baseSiteUrl}${normalizedPath === "/" ? "" : normalizedPath}`;
     const imageUrl = `${baseSiteUrl}${seo.image}`;
 
     document.title = title;
@@ -67,7 +65,7 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
 
     upsertMeta('meta[property="og:site_name"]', {
       property: "og:site_name",
-      content: "João Victor A. Abreu Portfolio",
+      content: "Joao Victor Alves de Abreu Portfolio",
     });
 
     upsertMeta('meta[property="og:locale"]', {
@@ -84,9 +82,10 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
       property: "og:image",
       content: imageUrl,
     });
+
     upsertMeta('meta[property="og:image:alt"]', {
       property: "og:image:alt",
-      content: "Foto de perfil de João Victor Alves de Abreu",
+      content: "Foto de perfil de Joao Victor Alves de Abreu",
     });
 
     upsertMeta('meta[name="twitter:title"]', {
@@ -113,9 +112,10 @@ export function usePageMeta({ title, description, path = "/" }: MetaOptions) {
       name: "twitter:image",
       content: imageUrl,
     });
+
     upsertMeta('meta[name="twitter:image:alt"]', {
       name: "twitter:image:alt",
-      content: "Foto de perfil de João Victor Alves de Abreu",
+      content: "Foto de perfil de Joao Victor Alves de Abreu",
     });
 
     upsertLink('link[rel="canonical"]', {

@@ -5,52 +5,53 @@ type ProjectVisualProps = {
 export function ProjectVisual({ label }: ProjectVisualProps) {
   return (
     <div
-      className="relative overflow-hidden rounded-[1.7rem] border border-slate-200 bg-[linear-gradient(180deg,rgba(248,250,252,0.98),rgba(226,232,240,0.88))] p-5 shadow-[0_20px_50px_rgba(148,163,184,0.12)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(8,15,30,0.96))]"
+      className="matrix-terminal relative overflow-hidden"
       aria-hidden="true"
     >
-      <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-brand-500/15 blur-3xl dark:bg-cyan-400/15" />
-      <div className="absolute bottom-0 left-0 h-24 w-24 rounded-full bg-cyan-300/25 blur-3xl dark:bg-brand-500/15" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(76,255,139,0.12),_transparent_28%)]" />
       <div className="relative">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex gap-2">
-            <span className="h-3 w-3 rounded-full bg-red-400" />
-            <span className="h-3 w-3 rounded-full bg-yellow-400" />
-            <span className="h-3 w-3 rounded-full bg-green-400" />
+            <span className="h-3 w-3 rounded-full bg-[#164a25]" />
+            <span className="h-3 w-3 rounded-full bg-[#1f7b3d]" />
+            <span className="h-3 w-3 rounded-full bg-[#4cff8b]" />
           </div>
-          <span className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
-            Portfolio View
+          <span className="rounded-full border border-[rgba(76,255,139,0.16)] bg-[rgba(8,20,10,0.9)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#9cffbf]">
+            matrix case
           </span>
         </div>
-        <div className="rounded-[1.35rem] border border-slate-200/80 bg-white/85 p-4 dark:border-white/10 dark:bg-white/5">
+
+        <div className="rounded-[1.35rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,12,6,0.92)] p-4">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-brand-600 dark:text-cyan-300">
+            <p className="matrix-code text-xs font-semibold uppercase tracking-[0.28em]">
               {label}
             </p>
-            <span className="rounded-full border border-brand-500/20 bg-brand-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-cyan-300">
-              Case Study
+            <span className="rounded-full border border-[rgba(76,255,139,0.16)] bg-[rgba(14,39,20,0.7)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8ff6b3]">
+              online
             </span>
           </div>
+
           <div className="mt-5 grid gap-3">
-            <div className="grid grid-cols-[1.5fr_0.7fr] gap-3">
-              <div className="rounded-[1.1rem] border border-slate-200/70 bg-slate-50/90 p-4 dark:border-white/10 dark:bg-slate-950/30">
-                <div className="h-3 w-2/3 rounded-full bg-slate-200 dark:bg-white/10" />
-                <div className="mt-4 h-20 rounded-2xl bg-gradient-to-br from-brand-500/15 via-cyan-300/20 to-slate-200/70 dark:from-brand-500/20 dark:via-cyan-300/10 dark:to-white/5" />
+            <div className="grid grid-cols-[1.3fr_0.7fr] gap-3">
+              <div className="rounded-[1.1rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(6,17,9,0.84)] p-4">
+                <div className="h-3 w-2/3 rounded-full bg-[rgba(145,255,184,0.14)]" />
+                <div className="mt-4 h-20 rounded-2xl bg-[linear-gradient(135deg,rgba(29,212,90,0.16),rgba(76,255,139,0.04),rgba(0,0,0,0.12))]" />
               </div>
               <div className="grid gap-3">
-                <div className="rounded-[1.1rem] border border-slate-200/70 bg-white/90 p-3 dark:border-white/10 dark:bg-white/5">
-                  <div className="h-2 rounded-full bg-slate-200 dark:bg-white/10" />
-                  <div className="mt-3 h-10 rounded-xl bg-slate-100 dark:bg-white/5" />
+                <div className="rounded-[1.1rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(6,17,9,0.84)] p-3">
+                  <div className="h-2 rounded-full bg-[rgba(145,255,184,0.12)]" />
+                  <div className="mt-3 h-10 rounded-xl bg-[rgba(145,255,184,0.08)]" />
                 </div>
-                <div className="rounded-[1.1rem] border border-slate-200/70 bg-white/90 p-3 dark:border-white/10 dark:bg-white/5">
-                  <div className="h-2 rounded-full bg-slate-200 dark:bg-white/10" />
-                  <div className="mt-3 h-10 rounded-xl bg-slate-100 dark:bg-white/5" />
+                <div className="rounded-[1.1rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(6,17,9,0.84)] p-3">
+                  <div className="h-2 rounded-full bg-[rgba(145,255,184,0.12)]" />
+                  <div className="mt-3 h-10 rounded-xl bg-[rgba(145,255,184,0.08)]" />
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-3">
-              <div className="h-16 rounded-2xl bg-slate-100 dark:bg-white/5" />
-              <div className="h-16 rounded-2xl bg-slate-100 dark:bg-white/5" />
-              <div className="h-16 rounded-2xl bg-gradient-to-r from-brand-500/10 to-cyan-300/20 dark:from-brand-500/20 dark:to-cyan-300/10" />
+              <div className="h-16 rounded-2xl border border-[rgba(76,255,139,0.1)] bg-[rgba(7,18,10,0.84)]" />
+              <div className="h-16 rounded-2xl border border-[rgba(76,255,139,0.1)] bg-[rgba(7,18,10,0.84)]" />
+              <div className="h-16 rounded-2xl border border-[rgba(76,255,139,0.14)] bg-[linear-gradient(90deg,rgba(18,92,39,0.3),rgba(29,212,90,0.16))]" />
             </div>
           </div>
         </div>

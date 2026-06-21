@@ -4,10 +4,10 @@ import { resolveSiteUrl } from "./resolve-site-url.mjs";
 const siteUrl = resolveSiteUrl(process.env);
 const pages = [
   "",
+  "/projetos/devtrack-ai",
+  "/projetos/greenops-control-center",
   "/projetos/motiva-orion",
-  "/projetos/climatemind-ai",
-  "/projetos/bot-nba",
-  "/projetos/aetheros",
+  "/projetos/taskflow-dev",
 ];
 
 mkdirSync("public", { recursive: true });

@@ -6,12 +6,13 @@ export default {
     extend: {
       colors: {
         brand: {
-          500: "#4f7cff",
-          600: "#255cf6",
+          500: "#1dd45a",
+          600: "#0fa344",
         },
       },
       fontFamily: {
-        sans: ["Segoe UI", "Inter", "system-ui", "sans-serif"],
+        sans: ["Space Grotesk", "Segoe UI", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Mono", "Consolas", "monospace"],
       },
     },
   },

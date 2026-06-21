@@ -3,17 +3,17 @@ import { footerLinks } from "../data/portfolio";
 export function Footer() {
   return (
     <footer
-      className="border-t border-slate-200 dark:border-white/10"
+      className="border-t border-[rgba(76,255,139,0.12)]"
       aria-label="Rodape"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-slate-600 dark:text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-[#98d8ad] lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>
-          <p className="font-medium text-slate-900 dark:text-white">
-            João Victor Alves de Abreu
+          <p className="font-medium text-[#effff4]">
+            Joao Victor Alves de Abreu
           </p>
           <p className="mt-1">
-            Portfólio com foco em backend, APIs, dados e projetos públicos de
-            engenharia.
+            Portfolio focado em backend, arquitetura, APIs REST e produtos com
+            narrativa tecnica clara.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export function Footer() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-2 transition hover:text-slate-950 dark:hover:text-white"
+              className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
               aria-label={
                 href.startsWith("http") ? `${label} (abre em nova guia)` : label
               }
