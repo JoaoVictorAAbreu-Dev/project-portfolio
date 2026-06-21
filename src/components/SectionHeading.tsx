@@ -21,9 +21,7 @@ export function SectionHeading({
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-8 text-[#a6dcb7]">
-          {description}
-        </p>
+        <p className="mt-5 text-base leading-8 text-[#acdcb9]">{description}</p>
       ) : null}
     </div>
   );

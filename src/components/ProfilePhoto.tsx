@@ -7,30 +7,50 @@ export function ProfilePhoto() {
   const profileImageJpgUrl = `${siteConfig.baseUrl}images/profile.jpg`;
 
   return (
-    <div className="relative mx-auto h-64 w-64 sm:h-80 sm:w-80">
-      <div className="absolute inset-0 rounded-full bg-[linear-gradient(145deg,rgba(29,212,90,0.88),rgba(76,255,139,0.42),rgba(10,40,16,0.9))] p-[2px] shadow-[0_0_0_1px_rgba(76,255,139,0.12),0_22px_60px_rgba(0,0,0,0.45)]">
-        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full border border-[rgba(145,255,184,0.16)] bg-[rgba(3,12,6,0.92)] backdrop-blur-md">
+    <div className="relative mx-auto w-full max-w-[22rem]">
+      <div className="rounded-[2rem] border border-[rgba(76,255,139,0.16)] bg-[linear-gradient(180deg,rgba(7,18,10,0.9),rgba(2,8,4,0.96))] p-4 shadow-[0_28px_80px_rgba(0,0,0,0.48)]">
+        <div className="mb-4 flex items-center justify-between text-[11px] uppercase tracking-[0.28em] text-[#8ff7b3]">
+          <span>identity</span>
+          <span>verified</span>
+        </div>
+        <div className="relative overflow-hidden rounded-[1.7rem] border border-[rgba(76,255,139,0.18)] bg-[radial-gradient(circle_at_top,_rgba(76,255,139,0.16),rgba(2,8,4,0.98)_68%)]">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_14%,transparent_86%,rgba(255,255,255,0.05))]" />
           {!imageError ? (
-            <picture className="h-full w-full">
+            <picture className="block aspect-[4/5] w-full">
               <source srcSet={profileImageWebpUrl} type="image/webp" />
               <img
                 src={profileImageJpgUrl}
                 alt="Foto de perfil de Joao Victor Alves de Abreu"
-                className="h-full w-full rounded-full object-cover"
+                className="h-full w-full object-cover"
                 loading="eager"
                 decoding="async"
                 onError={() => setImageError(true)}
               />
             </picture>
           ) : (
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-[radial-gradient(circle_at_top,_rgba(76,255,139,0.2),_rgba(2,8,4,0.98)_65%)] text-7xl font-semibold tracking-[0.18em] text-[#effff4]">
+            <div className="flex aspect-[4/5] w-full items-center justify-center text-7xl font-semibold tracking-[0.18em] text-[#effff4]">
               JV
             </div>
           )}
         </div>
-      </div>
-      <div className="pointer-events-none absolute inset-x-8 bottom-6 rounded-full border border-[rgba(76,255,139,0.14)] bg-[rgba(2,11,5,0.82)] px-4 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-[#92ffb7] backdrop-blur-md">
-        identity verified
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(6,17,9,0.8)] px-4 py-3">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-[#8ff7b3]">
+              stack
+            </p>
+            <p className="mt-2 text-sm font-medium text-[#effff4]">
+              Java, Spring Boot, FastAPI
+            </p>
+          </div>
+          <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(6,17,9,0.8)] px-4 py-3">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-[#8ff7b3]">
+              status
+            </p>
+            <p className="mt-2 text-sm font-medium text-[#effff4]">
+              disponivel para estagio
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

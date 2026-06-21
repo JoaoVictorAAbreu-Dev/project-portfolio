@@ -6,14 +6,14 @@ export function Footer() {
       className="border-t border-[rgba(76,255,139,0.12)]"
       aria-label="Rodape"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-[#98d8ad] lg:flex-row lg:items-center lg:justify-between lg:px-8">
-        <div>
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 text-sm text-[#98d8ad] lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div className="max-w-2xl">
           <p className="font-medium text-[#effff4]">
-            Joao Victor Alves de Abreu
+            Portfolio orientado a processo, arquitetura e clareza tecnica.
           </p>
           <p className="mt-1">
-            Portfolio focado em backend, arquitetura, APIs REST e produtos com
-            narrativa tecnica clara.
+            Layout redesenhado para destacar projetos primeiro, estudos de caso
+            depois e contato direto por ultimo.
           </p>
         </div>
 

@@ -46,6 +46,12 @@ const subjectOptions = [
   "Outro assunto",
 ];
 
+const recruiterSignals = [
+  "Projetos primeiro, narrativa depois.",
+  "Estudos de caso com problema, arquitetura e resultado.",
+  "Motion contido para nao prejudicar leitura.",
+];
+
 export function HomePage() {
   const shouldReduceMotion = useReducedMotion();
   const resumeUrl = `${import.meta.env.BASE_URL}curriculo-joao-victor.pdf`;
@@ -70,41 +76,46 @@ export function HomePage() {
     <MainLayout>
       <section
         aria-labelledby="hero-title"
-        className="relative mx-auto grid max-w-7xl gap-12 overflow-hidden px-5 pb-18 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-24 lg:pt-18"
+        className="relative mx-auto grid max-w-7xl gap-10 px-5 pb-18 pt-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:pb-22 lg:pt-18"
       >
-        <div className="hero-orb right-[6%] top-[8%] h-32 w-32 bg-[rgba(29,212,90,0.12)]" />
-        <div className="hero-orb left-[4%] top-[38%] h-24 w-24 bg-[rgba(76,255,139,0.12)]" />
+        <div className="hero-orb left-[2%] top-[12%] h-28 w-28 bg-[rgba(76,255,139,0.16)]" />
+        <div className="hero-orb right-[4%] top-[32%] h-36 w-36 bg-[rgba(76,255,139,0.1)]" />
 
         <div className="flex flex-col justify-center">
           <motion.p {...reveal()} className="eyebrow">
-            backend signal // selected portfolio
+            portfolio layout // recruiter first
           </motion.p>
           <motion.h1
             {...reveal(0.04)}
             id="hero-title"
             className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-[#effff4] sm:text-6xl"
           >
-            Joao Victor Alves de Abreu
+            Backend portfolio com
+            <span className="headline-gradient"> projetos fortes, </span>
+            contexto tecnico e leitura direta.
           </motion.h1>
           <motion.p
             {...reveal(0.08)}
-            className="mt-5 text-lg font-semibold text-[#c6ffda] sm:text-2xl"
+            className="mt-5 max-w-2xl text-lg leading-8 text-[#a8dbb7]"
           >
-            Estudante de Ciencia da Computacao | Backend Developer em formacao
+            Sou Joao Victor Alves de Abreu, estudante de Ciencia da Computacao
+            na FIAP. Estou construindo base em Java, Spring Boot, FastAPI,
+            PostgreSQL, autenticacao, APIs REST e produtos orientados a decisao.
           </motion.p>
-          <motion.p
-            {...reveal(0.12)}
-            className="mt-6 max-w-2xl text-base leading-8 text-[#9fd7b0]"
-          >
-            Construo APIs, produtos full stack e sistemas orientados a decisao
-            com foco em Java, Spring Boot, FastAPI, PostgreSQL, autenticacao,
-            regras de negocio e clareza tecnica.
-          </motion.p>
+
+          <motion.div {...reveal(0.12)} className="mt-8 flex flex-wrap gap-3">
+            <span className="data-chip">
+              <FiMapPin className="text-[#74ff9f]" />
+              Sao Paulo, SP
+            </span>
+            <span className="data-chip">4 projetos em destaque</span>
+            <span className="data-chip">Disponivel para estagio</span>
+          </motion.div>
 
           <motion.div {...reveal(0.16)} className="mt-10 flex flex-wrap gap-4">
             <a href="#projetos" className="btn-primary">
               <FiArrowRight />
-              Ver projetos
+              Explorar projetos
             </a>
             <a href={resumeUrl} download className="btn-secondary">
               <FiDownload />
@@ -114,30 +125,19 @@ export function HomePage() {
 
           <motion.div
             {...reveal(0.2)}
-            className="mt-8 flex flex-wrap items-center gap-5 text-sm text-[#9fd7b0]"
+            className="mt-10 terminal-card max-w-2xl"
           >
-            <span className="inline-flex items-center gap-2">
-              <FiMapPin aria-hidden="true" className="text-[#72ff9d]" />
-              Sao Paulo, SP
-            </span>
-            <ExternalLink
-              href="https://github.com/JoaoVictorAAbreu-Dev"
-              className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
-              aria-label="Abrir GitHub de Joao Victor em nova guia"
-              showNewTabText
-            >
-              <FiGithub aria-hidden="true" />
-              GitHub
-            </ExternalLink>
-            <ExternalLink
-              href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
-              className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
-              aria-label="Abrir LinkedIn de Joao Victor em nova guia"
-              showNewTabText
-            >
-              <FiLinkedin aria-hidden="true" />
-              LinkedIn
-            </ExternalLink>
+            <div className="flex items-center justify-between gap-4">
+              <p className="terminal-kicker">why this layout</p>
+              <span className="panel-chip">updated</span>
+            </div>
+            <div className="mt-5 space-y-3 text-sm leading-7 text-[#a6deb7]">
+              {recruiterSignals.map((signal) => (
+                <p key={signal} className="font-mono">
+                  {">"} {signal}
+                </p>
+              ))}
+            </div>
           </motion.div>
         </div>
 
@@ -148,75 +148,118 @@ export function HomePage() {
           <ProfilePhoto />
           <div className="hero-panel">
             <div className="flex items-center justify-between gap-4">
-              <p className="eyebrow">system snapshot</p>
-              <span className="tag">available for internship</span>
+              <p className="eyebrow">current signal</p>
+              <span className="panel-chip">targeting internships</span>
             </div>
-            <div className="mt-5 grid gap-4">
+            <div className="mt-6 grid gap-4">
               {quickProfile.map((item) => (
                 <div
                   key={item.label}
-                  className="flex flex-col gap-1 border-b border-[rgba(76,255,139,0.12)] pb-4 last:border-0 last:pb-0"
+                  className="rounded-[1.4rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(6,17,9,0.8)] p-4"
                 >
-                  <span className="text-sm text-[#88c49b]">{item.label}</span>
-                  <span className="font-medium text-[#effff4]">{item.value}</span>
+                  <span className="text-sm text-[#87c69b]">{item.label}</span>
+                  <p className="mt-2 font-medium text-[#effff4]">
+                    {item.value}
+                  </p>
                 </div>
               ))}
+            </div>
+            <div className="matrix-divider my-6" />
+            <div className="flex flex-wrap gap-4 text-sm text-[#9fd7b0]">
+              <ExternalLink
+                href="https://github.com/JoaoVictorAAbreu-Dev"
+                className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
+                aria-label="Abrir GitHub de Joao Victor em nova guia"
+                showNewTabText
+              >
+                <FiGithub aria-hidden="true" />
+                GitHub
+              </ExternalLink>
+              <ExternalLink
+                href="https://www.linkedin.com/in/jo%C3%A3ovictoraabreu"
+                className="inline-flex items-center gap-2 transition hover:text-[#effff4]"
+                aria-label="Abrir LinkedIn de Joao Victor em nova guia"
+                showNewTabText
+              >
+                <FiLinkedin aria-hidden="true" />
+                LinkedIn
+              </ExternalLink>
             </div>
           </div>
         </motion.div>
       </section>
 
       <section className="section-shell pt-0">
-        <motion.div
-          {...reveal(0.1)}
-          className="matrix-terminal grid gap-4 lg:grid-cols-[1.2fr_0.8fr_0.8fr]"
-        >
-          <div>
-            <p className="eyebrow">portfolio log</p>
-            <p className="matrix-code mt-4 text-sm leading-7 text-[#a7e9bb]">
-              {">"} repositories analyzed: 4 selected
-              <br />
-              {">"} focus: backend, architecture, APIs, data
-              <br />
-              {">"} current track: software engineering internship
-            </p>
-          </div>
-          <div className="mini-stat">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#8ff6b3]">
-              main stack
-            </p>
-            <p className="mt-3 text-lg font-semibold text-[#effff4]">
-              Java, Spring Boot, FastAPI
-            </p>
-          </div>
-          <div className="mini-stat">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#8ff6b3]">
-              repos em destaque
-            </p>
-            <p className="mt-3 text-lg font-semibold text-[#effff4]">4</p>
-          </div>
+        <motion.div {...reveal(0.08)} className="grid gap-4 lg:grid-cols-4">
+          <SignalMetric
+            label="Foco principal"
+            value="Backend Engineering"
+            note="Java, Spring Boot, APIs e arquitetura"
+          />
+          <SignalMetric
+            label="Tipo de portfolio"
+            value="Projeto-first"
+            note="Repositorios fortes antes de texto institucional"
+          />
+          <SignalMetric
+            label="Leitura"
+            value="Case study"
+            note="Problema, stack, estrutura e resultado"
+          />
+          <SignalMetric
+            label="Tema"
+            value="Matrix"
+            note="Dark, motion sutil e ambiente tecnologico"
+          />
         </motion.div>
+      </section>
+
+      <section
+        id="projetos"
+        aria-labelledby="projetos-heading"
+        className="section-shell scroll-mt-28 pt-10"
+      >
+        <SectionHeading
+          id="projetos-heading"
+          eyebrow="Projetos"
+          title="Os projetos vem primeiro porque e neles que o portfolio realmente prova capacidade tecnica."
+          description="A curadoria abaixo segue um padrao comum dos portfolios mais fortes: miniaturas ricas, contexto objetivo e acesso rapido ao estudo de caso."
+        />
+        <div className="mt-12 grid gap-6 xl:grid-cols-12">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              index={index}
+              project={project}
+              reveal={reveal}
+              shouldReduceMotion={shouldReduceMotion}
+            />
+          ))}
+        </div>
       </section>
 
       <section
         id="sobre"
         aria-labelledby="sobre-heading"
-        className="section-shell scroll-mt-28 pt-10"
+        className="section-shell scroll-mt-28"
       >
-        <SectionHeading
-          id="sobre-heading"
-          eyebrow="Sobre"
-          title="Perfil tecnico orientado a backend, modelagem de produto e crescimento consistente de engenharia."
-          description="A curadoria do portfolio foi refeita a partir dos seus melhores repositorios publicos para destacar projetos mais fortes para recrutadores."
-        />
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <motion.div {...reveal()} className="glass-card space-y-5">
-            {aboutPoints.map((point) => (
-              <p key={point} className="text-base leading-8 text-[#9fd7b0]">
-                {point}
-              </p>
-            ))}
-          </motion.div>
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="space-y-6">
+            <SectionHeading
+              id="sobre-heading"
+              eyebrow="Sobre"
+              title="Clareza tecnica, evolucao consistente e foco em problemas de software que fazem sentido para produto."
+              description="Este portfolio foi reorganizado para comunicar melhor o que importa em selecao tecnica: criterio, profundidade de projeto e direcao de carreira."
+            />
+            <div className="terminal-card space-y-4">
+              {aboutPoints.map((point) => (
+                <p key={point} className="text-base leading-8 text-[#a8dbb7]">
+                  {point}
+                </p>
+              ))}
+            </div>
+          </div>
+
           <div className="grid gap-5">
             {highlights.map(({ icon: Icon, title, description }, index) => (
               <motion.article
@@ -230,7 +273,7 @@ export function HomePage() {
                 <h3 className="mt-5 text-xl font-semibold text-[#effff4]">
                   {title}
                 </h3>
-                <p className="mt-3 text-base leading-7 text-[#9fd7b0]">
+                <p className="mt-3 text-base leading-7 text-[#a8dbb7]">
                   {description}
                 </p>
               </motion.article>
@@ -247,7 +290,7 @@ export function HomePage() {
         <SectionHeading
           id="stack-heading"
           eyebrow="Stack"
-          title="Tecnologias organizadas por area, priorizando o que aparece com mais forca nos repositorios selecionados."
+          title="Stack organizada por area, com foco no que aparece com mais densidade tecnica nos repositorios selecionados."
         />
         <div className="mt-12 grid gap-6 xl:grid-cols-2">
           {skillCategories.map((category, index) => (
@@ -256,9 +299,12 @@ export function HomePage() {
               {...reveal(0.04 * index)}
               className="glass-card"
             >
-              <h3 className="text-2xl font-semibold text-[#effff4]">
-                {category.category}
-              </h3>
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-2xl font-semibold text-[#effff4]">
+                  {category.category}
+                </h3>
+                <span className="panel-chip">stack block</span>
+              </div>
               <div className="mt-6 grid gap-4">
                 {category.items.map((item) => (
                   <div key={item.name} className="surface-card">
@@ -273,95 +319,13 @@ export function HomePage() {
                           </h4>
                           <span className="tag">{item.level}</span>
                         </div>
-                        <p className="mt-3 text-sm leading-7 text-[#9fd7b0]">
+                        <p className="mt-3 text-sm leading-7 text-[#a8dbb7]">
                           {item.description}
                         </p>
                       </div>
                     </div>
                   </div>
                 ))}
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </section>
-
-      <section
-        id="projetos"
-        aria-labelledby="projetos-heading"
-        className="section-shell scroll-mt-28"
-      >
-        <SectionHeading
-          id="projetos-heading"
-          eyebrow="Projetos"
-          title="Projetos escolhidos por densidade tecnica, clareza de arquitetura e aderencia a vagas de engenharia."
-          description="A selecao prioriza repositorios com proposta forte de backend, produto mais maduro e melhor narrativa para entrevista tecnica."
-        />
-        <div className="mt-12 grid gap-6 xl:grid-cols-2">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.slug}
-              {...reveal(0.05 * index)}
-              whileHover={shouldReduceMotion ? undefined : { y: -6 }}
-              aria-labelledby={`${project.slug}-title`}
-              className="glass-card flex h-full flex-col"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <span className="eyebrow">{project.status}</span>
-                <span className="text-sm text-[#8cc7a1]">
-                  {project.shortTitle}
-                </span>
-              </div>
-              <h3
-                id={`${project.slug}-title`}
-                className="mt-4 text-2xl font-semibold text-[#effff4]"
-              >
-                {project.title}
-              </h3>
-              <p className="mt-4 text-base leading-8 text-[#9fd7b0]">
-                {project.description}
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-6 space-y-4">
-                <div>
-                  <p className="text-sm font-semibold text-[#effff4]">
-                    O que o sistema resolve
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">
-                    {project.problemSolved}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-[#effff4]">
-                    Como foi estruturado
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">
-                    {project.architectureUsed}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <ExternalLink
-                  href={project.githubUrl}
-                  className="btn-secondary"
-                  aria-label={`Abrir repositorio ${project.title} no GitHub em nova guia`}
-                  showNewTabText
-                >
-                  <FiGithub />
-                  Repositorio
-                </ExternalLink>
-                <Link to={`/projetos/${project.slug}`} className="btn-primary">
-                  Ver estudo de caso
-                </Link>
               </div>
             </motion.article>
           ))}
@@ -376,7 +340,7 @@ export function HomePage() {
         <SectionHeading
           id="jornada-heading"
           eyebrow="Jornada"
-          title="Linha de evolucao pensada para estagio em engenharia de software."
+          title="Linha de evolucao organizada como log tecnico, sem excesso de texto e sem perder contexto."
         />
         <ol className="mt-12 space-y-5">
           {timeline.map((item, index) => (
@@ -385,15 +349,13 @@ export function HomePage() {
               {...reveal(0.04 * index)}
               className="list-none"
             >
-              <article className="glass-card relative overflow-hidden pl-8">
+              <article className="terminal-card relative overflow-hidden pl-8">
                 <div className="absolute left-0 top-0 h-full w-1 rounded-full bg-[linear-gradient(180deg,#1dd45a,#91ffb8)]" />
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#72ff9d]">
-                  {item.period}
-                </p>
+                <p className="terminal-kicker">{item.period}</p>
                 <h3 className="mt-3 text-2xl font-semibold text-[#effff4]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-base leading-8 text-[#9fd7b0]">
+                <p className="mt-3 text-base leading-8 text-[#a8dbb7]">
                   {item.description}
                 </p>
               </article>
@@ -410,7 +372,7 @@ export function HomePage() {
         <SectionHeading
           id="contato-heading"
           eyebrow="Contato"
-          title="Canal direto para oportunidades, entrevistas e conversas tecnicas."
+          title="Contato direto, formulario limpo e caminhos simples para recrutadores."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
           <address className="grid gap-4 not-italic">
@@ -432,7 +394,7 @@ export function HomePage() {
                     <Icon size={18} aria-hidden="true" />
                   </div>
                   <div>
-                    <p className="text-sm text-[#88c49b]">{label}</p>
+                    <p className="text-sm text-[#87c69b]">{label}</p>
                     <p className="mt-1 font-medium text-[#effff4]">{value}</p>
                   </div>
                 </a>
@@ -444,6 +406,141 @@ export function HomePage() {
         </div>
       </section>
     </MainLayout>
+  );
+}
+
+function SignalMetric({
+  label,
+  value,
+  note,
+}: {
+  label: string;
+  value: string;
+  note: string;
+}) {
+  return (
+    <div className="surface-card">
+      <p className="terminal-kicker">{label}</p>
+      <p className="mt-3 text-2xl font-semibold text-[#effff4]">{value}</p>
+      <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">{note}</p>
+    </div>
+  );
+}
+
+function ProjectCard({
+  index,
+  project,
+  reveal,
+  shouldReduceMotion,
+}: {
+  index: number;
+  project: (typeof projects)[number];
+  reveal: (delay?: number) => Record<string, unknown>;
+  shouldReduceMotion: boolean | null;
+}) {
+  const isFeatured = index === 0;
+  const layoutClassName = isFeatured
+    ? "xl:col-span-7 xl:row-span-2"
+    : index === 3
+      ? "xl:col-span-7"
+      : "xl:col-span-5";
+
+  return (
+    <motion.article
+      {...reveal(0.04 * index)}
+      whileHover={shouldReduceMotion ? undefined : { y: -6 }}
+      className={`glass-card relative overflow-hidden ${layoutClassName}`}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(76,255,139,0.12),_transparent_28%)]" />
+      <div className="relative flex h-full flex-col">
+        <div className="flex items-center justify-between gap-4">
+          <span className="eyebrow">{project.status}</span>
+          <span className="text-sm text-[#8bc8a0]">{project.shortTitle}</span>
+        </div>
+
+        <div className="mt-6 rounded-[1.6rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,11,5,0.9)] p-5">
+          <div className="flex items-center justify-between gap-4">
+            <p className="terminal-kicker">{project.imageLabel}</p>
+            <span className="panel-chip">selected repo</span>
+          </div>
+          <div className="mt-5 grid gap-3 sm:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.1)] bg-[rgba(7,18,10,0.84)] p-4">
+              <div className="h-3 w-1/2 rounded-full bg-[rgba(145,255,184,0.14)]" />
+              <div className="mt-4 h-24 rounded-[1.2rem] bg-[linear-gradient(135deg,rgba(18,92,39,0.42),rgba(76,255,139,0.08),rgba(0,0,0,0.2))]" />
+            </div>
+            <div className="grid gap-3">
+              <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.1)] bg-[rgba(7,18,10,0.84)] p-4">
+                <div className="h-2 w-2/3 rounded-full bg-[rgba(145,255,184,0.14)]" />
+                <div className="mt-3 h-8 rounded-xl bg-[rgba(145,255,184,0.08)]" />
+                <div className="mt-2 h-8 rounded-xl bg-[rgba(145,255,184,0.08)]" />
+              </div>
+              <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.1)] bg-[rgba(7,18,10,0.84)] p-4">
+                <div className="h-2 w-1/2 rounded-full bg-[rgba(145,255,184,0.14)]" />
+                <div className="mt-3 h-10 rounded-xl bg-[linear-gradient(90deg,rgba(18,92,39,0.3),rgba(76,255,139,0.14))]" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="mt-6 text-3xl font-semibold text-[#effff4]">
+          {project.title}
+        </h3>
+        <p className="mt-4 text-base leading-8 text-[#a8dbb7]">
+          {project.description}
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span key={tech} className="tag">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div
+          className={`mt-6 grid gap-4 ${
+            isFeatured ? "lg:grid-cols-2" : "sm:grid-cols-2"
+          }`}
+        >
+          <div className="surface-card">
+            <p className="terminal-kicker">problema</p>
+            <p className="mt-3 text-sm leading-7 text-[#a8dbb7]">
+              {project.problemSolved}
+            </p>
+          </div>
+          <div className="surface-card">
+            <p className="terminal-kicker">estrutura</p>
+            <p className="mt-3 text-sm leading-7 text-[#a8dbb7]">
+              {project.architectureUsed}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 surface-card">
+          <p className="terminal-kicker">o que este projeto sinaliza</p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-[#a8dbb7] marker:text-[#74ff9f]">
+            {project.learnings.slice(0, isFeatured ? 3 : 2).map((learning) => (
+              <li key={learning}>{learning}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <ExternalLink
+            href={project.githubUrl}
+            className="btn-secondary"
+            aria-label={`Abrir repositorio ${project.title} no GitHub em nova guia`}
+            showNewTabText
+          >
+            <FiGithub />
+            Repositorio
+          </ExternalLink>
+          <Link to={`/projetos/${project.slug}`} className="btn-primary">
+            Ver estudo de caso
+          </Link>
+        </div>
+      </div>
+    </motion.article>
   );
 }
 
@@ -540,18 +637,18 @@ function ContactForm() {
         </div>
         <div>
           <h3 className="text-xl font-semibold text-[#effff4]">
-            Canal de contato
+            Formulario de contato
           </h3>
-          <p className="mt-2 text-sm leading-7 text-[#9fd7b0]">
-            Preencha os dados do contato. Quando o endpoint estiver ativo, a
-            mensagem sera enviada direto pelo site. Sem endpoint, o formulario
-            abre o cliente de email com o texto preparado.
+          <p className="mt-2 text-sm leading-7 text-[#a8dbb7]">
+            O layout foi simplificado para facilitar contato rapido. Sem
+            endpoint configurado, o formulario abre o cliente de email com o
+            texto pronto.
           </p>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 rounded-[1.5rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,13,7,0.9)] p-4 sm:grid-cols-3">
-        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.84)] px-4 py-4">
+      <div className="mt-6 grid gap-3 rounded-[1.5rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(4,13,7,0.88)] p-4 sm:grid-cols-3">
+        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.82)] px-4 py-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
             <FiSend className="text-[#72ff9d]" />
             Envio
@@ -560,7 +657,7 @@ function ContactForm() {
             {configured ? "Direto pelo site" : "Abre email pronto"}
           </p>
         </div>
-        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.84)] px-4 py-4">
+        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.82)] px-4 py-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
             <FiClock className="text-[#72ff9d]" />
             Retorno
@@ -569,7 +666,7 @@ function ContactForm() {
             Preferencialmente em ate 48h
           </p>
         </div>
-        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.84)] px-4 py-4">
+        <div className="rounded-[1.2rem] border border-[rgba(76,255,139,0.12)] bg-[rgba(7,19,10,0.82)] px-4 py-4">
           <p className="inline-flex items-center gap-2 text-sm font-medium text-[#d9ffe7]">
             <FiMessageSquare className="text-[#72ff9d]" />
             Melhor uso
@@ -696,12 +793,12 @@ function ContactForm() {
 
         <label htmlFor="contact-message" className="field-shell mt-5">
           <div className="mb-2 flex items-center justify-between gap-3">
-            <span className="mb-0 block text-sm font-medium text-[#b5f7ca]">
+            <span className="mb-0 block text-sm font-medium text-[#c7f8d6]">
               Mensagem
             </span>
             <span
               className={`text-xs ${
-                remainingCharacters < 80 ? "text-[#ffd18b]" : "text-[#89c79e]"
+                remainingCharacters < 80 ? "text-[#ffd48d]" : "text-[#8ec7a0]"
               }`}
             >
               {message.length}/500
