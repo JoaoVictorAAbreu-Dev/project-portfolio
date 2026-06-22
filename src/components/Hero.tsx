@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../motionVariants";
 
@@ -8,8 +7,14 @@ export function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden">
       {/* Decorative blobs */}
-      <div className="blob blob--purple -top-24 -left-24 hidden md:block" aria-hidden />
-      <div className="blob blob--teal -bottom-24 -right-24 hidden md:block" aria-hidden />
+      <div
+        className="blob blob--purple -top-24 -left-24 hidden md:block"
+        aria-hidden
+      />
+      <div
+        className="blob blob--teal -bottom-24 -right-24 hidden md:block"
+        aria-hidden
+      />
 
       <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -25,11 +30,14 @@ export function Hero() {
             </p>
 
             <h1 className="mt-6 text-3xl md:text-5xl font-extrabold leading-tight">
-              Construo backends e APIs claros, testáveis e prontos para produção.
+              Construo backends e APIs claros, testáveis e prontos para
+              produção.
             </h1>
 
             <p className="mt-4 text-base text-[var(--text-700)] max-w-xl">
-              Foco em arquitetura, contratos bem definidos e soluções que mostram impacto — veja projetos com estudos de caso e setups reproduzíveis.
+              Foco em arquitetura, contratos bem definidos e soluções que
+              mostram impacto — veja projetos com estudos de caso e setups
+              reproduzíveis.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -70,7 +78,10 @@ export function Hero() {
           >
             {/* Mockup / image container */}
             <div className="relative w-full max-w-sm">
-              <div className="rounded-2xl overflow-hidden bg-[var(--surface)] shadow-lg" style={{ boxShadow: 'var(--card-elev)' }}>
+              <div
+                className="rounded-2xl overflow-hidden bg-[var(--surface)] shadow-lg"
+                style={{ boxShadow: "var(--card-elev)" }}
+              >
                 <picture>
                   <source srcSet="/images/hero-mockup.avif" type="image/avif" />
                   <img
