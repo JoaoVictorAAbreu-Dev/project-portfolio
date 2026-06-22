@@ -1,0 +1,28 @@
+/* Experimental visual tokens and decorative utilities */
+:root{
+  --card-elev: 0 10px 30px rgba(2,6,23,0.18);
+  --color-primary-50: #EEF2FF;
+  --color-primary-300:#A5B4FC;
+  --color-primary-700:#4F46E5;
+  --accent-500:#06B6D4;
+  --muted-700:#475569;
+  --bg-1:#F8FAFF;
+}
+
+.blob {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(28px);
+  opacity: 0.35;
+  pointer-events: none;
+  transform: translate3d(0,0,0);
+}
+.blob--purple { background: radial-gradient(circle at 30% 30%, #6366F1 0%, transparent 40%); }
+.blob--teal { background: radial-gradient(circle at 70% 70%, #06B6D4 0%, transparent 40%); }
+
+/* small utilities for motion */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
