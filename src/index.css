@@ -14,32 +14,56 @@
 
 html {
   scroll-behavior: smooth;
-  background: #010301;
+  background: #020402;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #020503 0%, #041108 48%, #010301 100%);
+  background: #020402;
   color: #ecfff2;
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-family: "IBM Plex Mono", "Segoe UI", monospace;
+}
+
+body::before,
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
+  background: repeating-linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.03) 0,
-    transparent 12%,
-    transparent 88%,
-    rgba(255, 255, 255, 0.025) 100%
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
   );
-  mix-blend-mode: screen;
-  opacity: 0.28;
+  mix-blend-mode: soft-light;
+  opacity: 0.16;
+}
+
+body::after {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.36) 100%
+  );
+  opacity: 0.48;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+img {
+  display: block;
 }
 
 a {
@@ -52,7 +76,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid rgba(76, 255, 139, 0.92);
+  outline: 2px solid rgba(0, 255, 65, 0.9);
   outline-offset: 3px;
 }
 
@@ -64,169 +88,189 @@ textarea {
 }
 
 ::selection {
-  background: rgba(76, 255, 139, 0.22);
+  background: rgba(0, 255, 65, 0.22);
   color: #f4fff7;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @layer components {
   .section-shell {
-    @apply mx-auto max-w-7xl px-5 py-20 lg:px-8;
+    @apply mx-auto max-w-7xl px-4 py-16 sm:px-5 lg:px-8;
   }
 
-  .glass-card {
-    @apply rounded-[2rem] border p-6 transition duration-300;
-    border-color: rgba(76, 255, 139, 0.14);
-    background: linear-gradient(
-      180deg,
-      rgba(7, 18, 10, 0.9),
-      rgba(2, 8, 4, 0.96)
-    );
+  .terminal-window {
+    @apply relative overflow-hidden rounded-[1.4rem] border p-5 sm:p-6;
+    border-color: rgba(0, 255, 65, 0.16);
+    background:
+      linear-gradient(180deg, rgba(4, 10, 4, 0.96), rgba(2, 6, 2, 0.98)),
+      radial-gradient(
+        circle at top right,
+        rgba(0, 255, 65, 0.06),
+        transparent 26%
+      );
     box-shadow:
-      0 28px 80px rgba(0, 0, 0, 0.46),
-      inset 0 1px 0 rgba(145, 255, 184, 0.05);
-    backdrop-filter: blur(18px);
+      0 18px 60px rgba(0, 0, 0, 0.48),
+      inset 0 1px 0 rgba(215, 255, 224, 0.03);
+    backdrop-filter: blur(12px);
   }
 
-  .glass-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(76, 255, 139, 0.24);
-    box-shadow:
-      0 32px 90px rgba(0, 0, 0, 0.5),
-      0 0 28px rgba(76, 255, 139, 0.08);
+  .mini-panel {
+    @apply rounded-[1rem] border p-4;
+    border-color: rgba(0, 255, 65, 0.12);
+    background: rgba(3, 9, 3, 0.9);
+    box-shadow: inset 0 1px 0 rgba(215, 255, 224, 0.02);
   }
 
-  .surface-card {
-    @apply rounded-[1.55rem] border p-5 transition duration-300;
-    border-color: rgba(76, 255, 139, 0.12);
-    background: rgba(6, 17, 9, 0.82);
-    box-shadow: inset 0 1px 0 rgba(145, 255, 184, 0.04);
+  .window-chrome {
+    @apply flex items-center justify-between gap-4 border-b px-4 py-3 sm:px-5;
+    border-color: rgba(0, 255, 65, 0.12);
+    background: rgba(2, 7, 3, 0.92);
   }
 
-  .surface-card:hover {
-    border-color: rgba(76, 255, 139, 0.22);
+  .window-dot {
+    @apply h-2.5 w-2.5 rounded-full;
+    box-shadow: 0 0 10px currentColor;
   }
 
-  .terminal-card {
-    @apply rounded-[1.9rem] border p-6;
-    border-color: rgba(76, 255, 139, 0.14);
-    background: linear-gradient(
-      180deg,
-      rgba(4, 12, 6, 0.94),
-      rgba(1, 5, 2, 0.97)
-    );
-    box-shadow:
-      0 24px 72px rgba(0, 0, 0, 0.46),
-      inset 0 1px 0 rgba(145, 255, 184, 0.04);
+  .system-pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em];
+    border: 1px solid rgba(0, 255, 65, 0.18);
+    background: rgba(0, 255, 65, 0.06);
+    color: #8ee5a5;
   }
 
-  .hero-panel {
-    @apply rounded-[2rem] border p-6;
-    border-color: rgba(76, 255, 139, 0.16);
-    background: linear-gradient(
-      180deg,
-      rgba(5, 16, 8, 0.94),
-      rgba(2, 8, 4, 0.96)
-    );
-    box-shadow:
-      0 24px 72px rgba(0, 0, 0, 0.44),
-      inset 0 1px 0 rgba(145, 255, 184, 0.05);
+  .search-shell {
+    @apply items-center gap-2 rounded-full border px-4 py-2 text-sm;
+    border-color: rgba(0, 255, 65, 0.12);
+    background: rgba(3, 9, 3, 0.9);
+    color: #92cfa2;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-300;
-    border: 1px solid rgba(76, 255, 139, 0.22);
+    @apply inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-300;
+    border: 1px solid rgba(0, 255, 65, 0.22);
     background: linear-gradient(
-      90deg,
-      rgba(18, 92, 39, 0.96),
-      rgba(76, 255, 139, 0.92)
+      180deg,
+      rgba(0, 255, 65, 0.92),
+      rgba(0, 194, 54, 0.88)
     );
     color: #021107;
-    box-shadow:
-      0 14px 36px rgba(76, 255, 139, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    box-shadow: 0 10px 28px rgba(0, 255, 65, 0.18);
   }
 
   .btn-primary:hover {
     transform: translateY(-1px);
-    filter: brightness(1.05);
+    filter: brightness(1.02);
+  }
+
+  .btn-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.72;
+    transform: none;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-300;
-    border: 1px solid rgba(76, 255, 139, 0.16);
-    background: rgba(5, 16, 8, 0.86);
-    color: #ddffe8;
+    @apply inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-300;
+    border: 1px solid rgba(0, 255, 65, 0.16);
+    background: rgba(3, 9, 3, 0.92);
+    color: #d7ffe0;
   }
 
   .btn-secondary:hover {
     transform: translateY(-1px);
-    border-color: rgba(76, 255, 139, 0.3);
-    background: rgba(7, 19, 10, 0.92);
+    border-color: rgba(0, 255, 65, 0.28);
+    background: rgba(5, 12, 4, 0.96);
   }
 
   .tag {
-    @apply rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em];
-    border: 1px solid rgba(76, 255, 139, 0.14);
-    background: rgba(8, 22, 11, 0.82);
-    color: #92ffb7;
-  }
-
-  .panel-chip {
-    @apply rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em];
-    border: 1px solid rgba(76, 255, 139, 0.14);
-    background: rgba(8, 22, 11, 0.82);
-    color: #92ffb7;
+    @apply rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em];
+    border: 1px solid rgba(0, 255, 65, 0.14);
+    background: rgba(0, 255, 65, 0.06);
+    color: #8ee5a5;
   }
 
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-[0.28em];
-    color: #4cff8b;
-    font-family: "IBM Plex Mono", monospace;
+    @apply text-xs font-semibold uppercase tracking-[0.32em];
+    color: #00ff41;
   }
 
   .terminal-kicker {
-    @apply text-xs font-semibold uppercase tracking-[0.3em];
-    color: #90ffb6;
-    font-family: "IBM Plex Mono", monospace;
+    @apply text-[11px] font-semibold uppercase tracking-[0.26em];
+    color: #7bd895;
+  }
+
+  .terminal-cursor {
+    @apply ml-1 inline-block;
+    animation: blink 1s step-end infinite;
   }
 
   .icon-badge {
     @apply flex h-12 w-12 items-center justify-center rounded-2xl;
-    border: 1px solid rgba(76, 255, 139, 0.18);
-    background: linear-gradient(
-      180deg,
-      rgba(18, 47, 24, 0.9),
-      rgba(5, 14, 8, 0.9)
+    border: 1px solid rgba(0, 255, 65, 0.16);
+    background: radial-gradient(
+      circle at top,
+      rgba(10, 40, 16, 0.96),
+      rgba(2, 8, 3, 0.96)
     );
-    color: #75ff9f;
-  }
-
-  .hero-orb {
-    @apply absolute rounded-full blur-3xl;
-  }
-
-  .headline-gradient {
-    background: linear-gradient(90deg, #f0fff4 0%, #b8ffcf 42%, #4cff8b 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #8be7a4;
   }
 
   .data-chip {
     @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm;
-    border: 1px solid rgba(76, 255, 139, 0.14);
-    background: rgba(6, 17, 9, 0.82);
-    color: #c9ffda;
+    border: 1px solid rgba(0, 255, 65, 0.14);
+    background: rgba(3, 9, 3, 0.9);
+    color: #d7ffe0;
   }
 
-  .matrix-divider {
-    @apply h-px w-full;
+  .photo-shell {
+    @apply relative h-[18rem] w-[18rem] overflow-hidden rounded-full p-[2px];
     background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(76, 255, 139, 0.26),
-      transparent
+      135deg,
+      rgba(0, 255, 65, 0.6),
+      rgba(140, 255, 180, 0.18),
+      rgba(255, 255, 255, 0.12)
     );
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(255, 255, 255, 0.03);
+  }
+
+  .photo-shell > img,
+  .photo-shell > div {
+    @apply h-full w-full rounded-full;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 14%),
+      radial-gradient(
+        circle at top,
+        rgba(22, 70, 30, 0.95),
+        rgba(2, 8, 3, 0.98) 70%
+      );
+    backdrop-filter: blur(8px);
+  }
+
+  .roadmap-item {
+    @apply relative rounded-[1.2rem] border p-5 pl-8;
+    border-color: rgba(0, 255, 65, 0.14);
+    background: rgba(3, 9, 3, 0.92);
+  }
+
+  .roadmap-marker {
+    @apply absolute left-4 top-5 h-3 w-3 rounded-full;
+    background: #00ff41;
+    box-shadow:
+      0 0 12px rgba(0, 255, 65, 0.52),
+      0 0 0 4px rgba(0, 255, 65, 0.08);
   }
 
   .field-shell {
@@ -235,28 +279,28 @@ textarea {
 
   .field-shell span {
     @apply mb-2 block text-sm font-medium;
-    color: #c7f8d6;
+    color: #d7ffe0;
   }
 
   .field-shell input,
   .field-shell select,
   .field-shell textarea {
-    @apply w-full rounded-2xl px-4 py-3 text-base outline-none transition;
-    border: 1px solid rgba(76, 255, 139, 0.14);
-    background: rgba(2, 10, 5, 0.92);
-    color: #f0fff4;
+    @apply w-full rounded-[1rem] px-4 py-3 text-sm outline-none transition;
+    border: 1px solid rgba(0, 255, 65, 0.16);
+    background: rgba(2, 7, 3, 0.94);
+    color: #f4fff7;
   }
 
   .field-shell input::placeholder,
   .field-shell textarea::placeholder {
-    color: rgba(181, 247, 202, 0.44);
+    color: rgba(199, 248, 214, 0.42);
   }
 
   .field-shell input:focus,
   .field-shell select:focus,
   .field-shell textarea:focus {
-    border-color: rgba(76, 255, 139, 0.34);
-    box-shadow: 0 0 0 3px rgba(76, 255, 139, 0.12);
+    border-color: rgba(0, 255, 65, 0.34);
+    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.08);
   }
 
   .field-error {
@@ -271,6 +315,13 @@ textarea {
 
   .sr-only {
     @apply absolute h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [-webkit-clip-path:inset(50%)] [clip-path:inset(50%)] [-webkit-clip:rect(0,0,0,0)] [clip:rect(0,0,0,0)] [margin:-1px];
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-shell {
+    height: 15rem;
+    width: 15rem;
   }
 }
 

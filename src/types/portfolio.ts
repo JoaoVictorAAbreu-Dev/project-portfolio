@@ -5,6 +5,11 @@ export type NavItem = {
   href: string;
 };
 
+export type TerminalLine = {
+  label: string;
+  value: string;
+};
+
 export type MetricItem = {
   label: string;
   value: string;
@@ -79,5 +84,11 @@ export type HighlightItem = {
 export type GithubInsight = {
   label: string;
   value: string;
+  detail: string;
+};
+
+export type LearningItem = {
+  title: string;
+  status: string;
   detail: string;
 };
