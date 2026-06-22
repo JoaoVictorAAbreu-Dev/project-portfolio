@@ -1,6 +1,6 @@
-# João Victor Alves de Abreu | Portfólio
+# Joao Victor Alves de Abreu | Portfolio
 
-Portfólio profissional com foco em recrutadores de Engenharia de Software. O projeto destaca backend, arquitetura, APIs, dados e produtos full stack por meio de uma curadoria enxuta de estudos de caso.
+Portfolio profissional com foco em recrutadores de Engenharia de Software. O projeto destaca backend, arquitetura, APIs, dados e produtos full stack por meio de uma curadoria enxuta de tres estudos de caso principais.
 
 ## Stack
 
@@ -13,19 +13,18 @@ Portfólio profissional com foco em recrutadores de Engenharia de Software. O pr
 
 ## Destaques
 
-- Tema visual inspirado em Matrix, com foco em legibilidade e contraste
-- Hero orientado a empregabilidade, com CTAs diretos para projetos, GitHub, LinkedIn e currículo
-- Projetos selecionados com resumo técnico e estudo de caso
-- Foto local com fallback automático para iniciais
-- Formulário visual sem backend, com fallback para `mailto`
-- SEO básico, sitemap e metadados preparados para deploy
+- Visual profissional com foco em clareza, contraste e leitura rapida
+- Hero orientado a empregabilidade, com CTAs diretos para projetos, GitHub, LinkedIn e curriculo
+- Tres projetos principais com resumo tecnico e estudo de caso
+- Foto local com fallback automatico para iniciais
+- Contato direto por email, LinkedIn e GitHub
+- SEO basico, sitemap e metadados preparados para deploy
 
 ## Projetos em destaque
 
 - DevTrack AI
 - GreenOps Control Center
 - Motiva ORION
-- TaskFlow Dev
 
 ## Como rodar localmente
 
@@ -34,29 +33,28 @@ npm install
 npm run dev
 ```
 
-## Build de produção
+## Build de producao
 
 ```bash
 npm run build
 ```
 
-## Variáveis opcionais
+## Variaveis opcionais
 
 Use `.env.example` como base para criar um arquivo `.env`:
 
-- `VITE_SITE_URL`: URL pública usada em SEO e links canônicos
+- `VITE_SITE_URL`: URL publica usada em SEO e links canonicos
 - `VITE_BASE_PATH`: base path do projeto
-- `VITE_FORMSPREE_ENDPOINT`: endpoint do Formspree para ativar envio direto no formulário
 
 ## Deploy na Vercel
 
-Configuração recomendada:
+Configuracao recomendada:
 
 - Framework Preset: `Vite`
 - Build Command: `npm run build`
 - Output Directory: `dist`
 - Install Command: `npm install`
 
-Se quiser forçar a canonical para um domínio próprio:
+Se quiser forcar a canonical para um dominio proprio:
 
 - defina `VITE_SITE_URL=https://seu-dominio.com`

@@ -37,7 +37,6 @@ export const navItems: NavItem[] = [
   { label: "Projetos", href: "#projetos" },
   { label: "Stack", href: "#stack" },
   { label: "Sobre", href: "#sobre" },
-  { label: "Jornada", href: "#jornada" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -50,8 +49,9 @@ export const heroSignals = [
 export const heroStats = [
   {
     label: "Projetos selecionados",
-    value: "6",
-    detail: "Curadoria com foco em backend, produto e profundidade tecnica.",
+    value: "3",
+    detail:
+      "Cases principais com foco em backend, produto e profundidade tecnica.",
   },
   {
     label: "Stack principal",
@@ -70,18 +70,6 @@ export const quickProfile = [
   { label: "Email", value: "joaovictoralvesabreu1@gmail.com" },
   { label: "GitHub", value: "JoaoVictorAAbreu-Dev" },
   { label: "LinkedIn", value: "linkedin.com/in/joaovictoraabreu" },
-];
-
-export const profileTags = [
-  "Java",
-  "Spring Boot",
-  "C#",
-  ".NET",
-  "Python",
-  "TypeScript",
-  "React",
-  "SQL",
-  "Docker",
 ];
 
 export const aboutPoints = [
@@ -408,207 +396,30 @@ export const projects: ProjectItem[] = [
       ],
     },
   },
+];
+
+export const archivedProjects = [
   {
-    slug: "climate-analytics",
     title: "Climate Analytics",
-    shortTitle: "Dashboard de analytics climatico",
-    description:
-      "Dashboard de inteligencia climatica com condicoes atuais, previsao de curto prazo e indicadores simples de risco.",
-    problemSolved:
-      "Transformar dados publicos de clima em sinais legiveis para planejamento, sem esconder a logica por tras dos calculos.",
-    architectureUsed:
-      "Backend FastAPI para endpoints de clima e analytics; frontend React com TypeScript; consumo da Open-Meteo API.",
-    technologies: [
-      "Python",
-      "FastAPI",
-      "React",
-      "TypeScript",
-      "Open-Meteo",
-      "Pytest",
-    ],
-    challenges: [
-      "Traduzir dados climaticos em alertas operacionais legiveis.",
-      "Manter o produto simples, mas com valor real.",
-      "Integrar backend e frontend de forma enxuta.",
-    ],
-    learnings: [
-      "Boa prova de conceito para APIs orientadas a analytics.",
-      "Mostra integracao entre dados publicos e painel web.",
-      "Complementa o portfolio com recorte analitico.",
-    ],
-    status: "Projeto complementar",
-    imageLabel: "Analytics climatico",
-    githubUrl:
-      "https://github.com/JoaoVictorAAbreu-Dev/project-climate-analytics",
-    demoUrl: null,
-    caseStudy: {
-      context:
-        "Climate Analytics foi posicionado como ferramenta de suporte a decisao com base em dados publicos.",
-      problem:
-        "Muitos paineis climaticos mostram numeros, mas nao ajudam a transformar previsao em acao operacional.",
-      solution:
-        "O sistema entrega snapshot atual, blocos de previsao e indicadores simples de calor, vento, umidade e risco de chuva.",
-      architecture: [
-        "FastAPI com endpoints de saude, clima, forecast e analytics",
-        "Frontend React com leitura enxuta de dados por cidade",
-        "Integracao com Open-Meteo e checagens basicas de qualidade",
-      ],
-      technologies: [
-        "Python",
-        "FastAPI",
-        "React",
-        "TypeScript",
-        "Open-Meteo",
-        "Pytest",
-      ],
-      challenges: [
-        "Evitar um dashboard sem interpretacao",
-        "Escolher metricas uteis para planejamento",
-        "Preservar simplicidade tecnica no escopo",
-      ],
-      results: [
-        "Boa vitrine de integracao com API publica",
-        "Exemplo claro de produto enxuto com backend e frontend",
-        "Complementa o portfolio com recorte analitico",
-      ],
-      futureImprovements: [
-        "Persistencia de historico por cidade",
-        "Alertas customizados",
-        "Comparacao entre janelas de tempo",
-      ],
-    },
+    href: "https://github.com/JoaoVictorAAbreu-Dev/project-climate-analytics",
   },
   {
-    slug: "bot-nba",
     title: "Bot NBA",
-    shortTitle: "Automacao com Discord e APIs externas",
-    description:
-      "Bot para Discord com comandos sobre NBA, fallback entre provedores de dados esportivos e painel complementar.",
-    problemSolved:
-      "Consumir dados de forma confiavel mesmo quando um dos provedores externos falha.",
-    architectureUsed:
-      "Aplicacao em Python com discord.py, servicos isolados, fallback entre APIs e dashboard web complementar.",
-    technologies: [
-      "Python",
-      "discord.py",
-      "FastAPI",
-      "TheSportsDB",
-      "balldontlie",
-      "HTML",
-    ],
-    challenges: [
-      "Tratar indisponibilidade de APIs externas.",
-      "Organizar comandos, servicos e utilitarios sem acoplamento excessivo.",
-      "Manter experiencia simples entre bot e painel.",
-    ],
-    learnings: [
-      "Mostra integracao pratica com APIs de terceiros.",
-      "Evidencia tratamento de falhas e fallback de provider.",
-      "Adiciona automacao ao portfolio.",
-    ],
-    status: "Projeto complementar",
-    imageLabel: "Bot e integracoes",
-    githubUrl: "https://github.com/JoaoVictorAAbreu-Dev/project-bot-nba",
-    demoUrl: null,
-    caseStudy: {
-      context:
-        "Bot NBA foi construido para consumir informacoes esportivas em tempo real com uma experiencia simples dentro do Discord.",
-      problem:
-        "APIs esportivas nem sempre sao estaveis ou completas. Isso reduz confiabilidade quando o produto depende de uma unica fonte.",
-      solution:
-        "O projeto combina balldontlie com TheSportsDB como fallback e expoe comandos uteis de times, jogadores, jogos e ranking.",
-      architecture: [
-        "Camada de servicos para integracao com APIs externas",
-        "Comandos desacoplados do core do bot",
-        "Painel web complementar para visualizacao local",
-      ],
-      technologies: [
-        "Python",
-        "discord.py",
-        "FastAPI",
-        "balldontlie",
-        "TheSportsDB",
-      ],
-      challenges: [
-        "Gerenciar indisponibilidade de provedores",
-        "Padronizar respostas entre fontes diferentes",
-        "Controlar configuracao local com multiplas chaves",
-      ],
-      results: [
-        "Boa amostra de integracao e tolerancia a falhas",
-        "Projeto util para demonstrar automacao com APIs",
-        "Expande o portfolio alem do dashboard tradicional",
-      ],
-      futureImprovements: [
-        "Mais testes de integracao",
-        "Cache local para consultas frequentes",
-        "Historico de interacoes por usuario",
-      ],
-    },
+    href: "https://github.com/JoaoVictorAAbreu-Dev/project-bot-nba",
   },
   {
-    slug: "aetheros",
     title: "AetherOS",
-    shortTitle: "Sistema operacional academico em Rust",
-    description:
-      "Sistema operacional academico em Rust para x86_64, com arquitetura modular e documentacao forte.",
-    problemSolved:
-      "Criar uma base seria de estudo para OSDev sem ficar em um repositorio raso ou sem explicacao arquitetural.",
-    architectureUsed:
-      "Projeto em Rust com kernel modular, crates organizadas, roadmap e execucao em QEMU.",
-    technologies: [
-      "Rust",
-      "x86_64",
-      "QEMU",
-      "Cargo",
-      "Makefile",
-      "GitHub Actions",
-    ],
-    challenges: [
-      "Trabalhar em baixo nivel com disciplina arquitetural.",
-      "Documentar decisoes para quem ainda esta aprendendo OSDev.",
-      "Equilibrar profundidade tecnica e clareza didatica.",
-    ],
-    learnings: [
-      "Mostra curiosidade tecnica alem do recorte web.",
-      "Reforca disciplina arquitetural e documentacao.",
-      "Diferencial de profundidade para um estudante.",
-    ],
-    status: "Projeto complementar",
-    imageLabel: "Baixo nivel e arquitetura",
-    githubUrl: "https://github.com/JoaoVictorAAbreu-Dev/project-aetheros",
-    demoUrl: null,
-    caseStudy: {
-      context:
-        "AetherOS nasceu como sistema operacional academico open source, com foco em ser tecnico e util para estudo.",
-      problem:
-        "Repositorios de sistemas operacionais amadores costumam ser superficiais demais ou tecnicos demais sem documentacao suficiente.",
-      solution:
-        "O projeto organiza kernel, crates, scripts e documentacao para evoluir de forma incremental com foco em arquitetura limpa.",
-      architecture: [
-        "Kernel modular em Rust para x86_64",
-        "Crates e diretorios separados por responsabilidade",
-        "Docs, roadmap e convencoes de contribuicao como parte do produto",
-      ],
-      technologies: ["Rust", "x86_64", "QEMU", "Cargo", "GitHub Actions"],
-      challenges: [
-        "Lidar com baixo nivel e modularidade ao mesmo tempo",
-        "Documentar trade-offs de arquitetura",
-        "Tornar o projeto util para estudo e contribuicao",
-      ],
-      results: [
-        "Projeto que amplia a profundidade tecnica do portfolio",
-        "Boa demonstracao de disciplina arquitetural",
-        "Diferencial de aprendizado para recrutadores tecnicos",
-      ],
-      futureImprovements: [
-        "Mais testes automatizados de subsistemas",
-        "Expansao da documentacao tecnica",
-        "Evolucao incremental do kernel e user space",
-      ],
-    },
+    href: "https://github.com/JoaoVictorAAbreu-Dev/project-aetheros",
   },
 ];
+
+export const profileTags = Array.from(
+  new Set(
+    skillCategories.flatMap((category) =>
+      category.items.map((item) => item.name),
+    ),
+  ),
+).slice(0, 9);
 
 export const timeline: TimelineItem[] = [
   {
