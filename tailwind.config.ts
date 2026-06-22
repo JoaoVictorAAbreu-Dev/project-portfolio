@@ -5,14 +5,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          500: "#1dd45a",
-          600: "#0fa344",
+        primary: {
+          50: "#EEF2FF",
+          100: "#E0E7FF",
+          300: "#A5B4FC",
+          500: "#6366F1",
+          700: "#4F46E5",
+          900: "#3730A3",
+        },
+        accent: {
+          500: "#06B6D4",
         },
       },
       fontFamily: {
-        sans: ["Space Grotesk", "Segoe UI", "system-ui", "sans-serif"],
-        mono: ["IBM Plex Mono", "Consolas", "monospace"],
+        sans: ["Inter", "Segoe UI", "system-ui", "sans-serif"],
+        display: ["Poppins", "Inter", "Segoe UI", "sans-serif"],
       },
     },
   },

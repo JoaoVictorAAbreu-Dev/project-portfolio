@@ -16,12 +16,14 @@ export function SectionHeading({
       <p className="eyebrow">{eyebrow}</p>
       <h2
         id={id}
-        className="mt-4 text-3xl font-semibold tracking-tight text-[#effff4] sm:text-4xl"
+        className="mt-4 text-3xl font-semibold tracking-tight text-[var(--text-strong)] sm:text-4xl"
       >
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-8 text-[#acdcb9]">{description}</p>
+        <p className="mt-5 text-base leading-8 text-[var(--text-muted)]">
+          {description}
+        </p>
       ) : null}
     </div>
   );

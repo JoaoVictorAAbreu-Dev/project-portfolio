@@ -17,50 +17,59 @@ import {
 } from "react-icons/hi2";
 import type {
   ContactLink,
-  GithubInsight,
   HighlightItem,
   LearningItem,
   NavItem,
   ProjectItem,
   SkillCategory,
-  TerminalLine,
   TimelineItem,
 } from "../types/portfolio";
 
 export const seo = {
-  title: "João Victor Alves de Abreu | Backend Engineering Portfolio",
+  title: "Joao Victor Alves de Abreu | Backend Engineering Portfolio",
   description:
-    "Portfólio profissional com foco em backend, Java, Spring Boot, .NET, Python, APIs REST, bancos relacionais e projetos orientados a produto.",
+    "Portfolio profissional com foco em backend, Java, Spring Boot, C#, .NET, Python, APIs REST e projetos orientados a produto.",
   image: "/images/profile.webp",
   url: "https://joaovictorabreu-joaovictor-labs.vercel.app",
 };
 
 export const navItems: NavItem[] = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Stack", href: "#stack" },
   { label: "Projetos", href: "#projetos" },
-  { label: "GitHub", href: "#github" },
+  { label: "Stack", href: "#stack" },
+  { label: "Sobre", href: "#sobre" },
   { label: "Jornada", href: "#jornada" },
   { label: "Contato", href: "#contato" },
 ];
 
 export const heroSignals = [
-  "São Paulo/SP - Brasil",
-  "Status: ONLINE",
-  "Objetivo: Estágio em Engenharia de Software / Backend",
+  "Sao Paulo, Brasil",
+  "Disponivel para estagio",
+  "Foco em backend, APIs e arquitetura",
+];
+
+export const heroStats = [
+  {
+    label: "Projetos selecionados",
+    value: "6",
+    detail: "Curadoria com foco em backend, produto e profundidade tecnica.",
+  },
+  {
+    label: "Stack principal",
+    value: "Java + Spring + .NET",
+    detail: "Base crescente em backend corporativo e integracoes.",
+  },
+  {
+    label: "Formacao",
+    value: "FIAP",
+    detail: "Ciencia da Computacao com foco em engenharia de software.",
+  },
 ];
 
 export const quickProfile = [
-  { label: "Objetivo", value: "Estágio em Engenharia de Software" },
-  { label: "Formação", value: "FIAP · Ciência da Computação" },
-  {
-    label: "Foco técnico",
-    value: "Backend com Java, Spring Boot, C#, .NET e Python",
-  },
-  {
-    label: "Posicionamento",
-    value: "Projetos reais, APIs, dados, testes e documentação",
-  },
+  { label: "Objetivo", value: "Estagio em Engenharia de Software" },
+  { label: "Email", value: "joaovictoralvesabreu1@gmail.com" },
+  { label: "GitHub", value: "JoaoVictorAAbreu-Dev" },
+  { label: "LinkedIn", value: "linkedin.com/in/joaovictoraabreu" },
 ];
 
 export const profileTags = [
@@ -69,140 +78,122 @@ export const profileTags = [
   "C#",
   ".NET",
   "Python",
-  "REST APIs",
-  "PostgreSQL",
+  "TypeScript",
+  "React",
+  "SQL",
   "Docker",
-  "Linux",
-];
-
-export const terminalLines: TerminalLine[] = [
-  { label: "> loading_profile", value: "completed" },
-  { label: "> focus", value: "backend engineering" },
-  {
-    label: "> current_stack",
-    value: "Java / Spring Boot / C# / .NET / Python / SQL",
-  },
-  { label: "> goal", value: "software engineering internship" },
-  { label: "> status", value: "building real-world projects" },
 ];
 
 export const aboutPoints = [
-  "Sou estudante de Ciência da Computação na FIAP, com foco em Engenharia de Software, desenvolvimento backend e arquitetura de sistemas escaláveis.",
-  "Meu interesse principal está em APIs, autenticação, organização em camadas, persistência relacional e produtos que resolvem problemas reais com clareza técnica.",
-  "Estou construindo um portfólio orientado à empregabilidade, com repositórios que mostram backend, frontend, dados, documentação, testes e setup reproduzível.",
+  "Sou estudante de Ciencia da Computacao na FIAP, com foco em engenharia de software, desenvolvimento backend e arquitetura de sistemas.",
+  "Tenho interesse em construir APIs, autenticacao, persistencia relacional e produtos que resolvem problemas reais com clareza tecnica.",
+  "Meu portfolio prioriza repositorios publicos com contexto de produto, setup reproduzivel, documentacao e evolucao incremental.",
 ];
 
 export const highlights: HighlightItem[] = [
   {
-    title: "Raciocínio de produto",
+    title: "Clareza tecnica",
     description:
-      "Os projetos não param em CRUD básico. Eles trazem contexto, fluxo de decisão, regras de negócio e leitura operacional mais próxima do mercado.",
-    icon: HiOutlineSparkles,
-  },
-  {
-    title: "Organização técnica",
-    description:
-      "Procuro separar responsabilidade entre camadas, contratos de API, serviços, persistência, documentação e automação local.",
+      "Procuro deixar contratos, servicos, persistencia e responsabilidades bem separados para facilitar leitura e manutencao.",
     icon: HiOutlineShieldCheck,
   },
   {
-    title: "Aprendizado rápido",
+    title: "Projetos com contexto",
     description:
-      "Tenho facilidade para absorver tecnologias novas e transformar estudo em entrega prática, com disciplina de documentação e evolução incremental.",
+      "Os melhores cases tratam problema, solucao, arquitetura e impacto, em vez de mostrar apenas interface ou CRUD.",
+    icon: HiOutlineSparkles,
+  },
+  {
+    title: "Aprendizado rapido",
+    description:
+      "Consigo absorver tecnologias novas e transformar estudo em entrega pratica, com boa documentacao e iteracao constante.",
     icon: HiOutlineArrowTrendingUp,
   },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Backend core",
+    category: "Backend",
     items: [
       {
         name: "Java",
         level: "Base forte",
         description:
-          "POO, estruturação de regras de negócio, modelagem de domínio e construção de APIs mais organizadas.",
+          "POO, dominio, organizacao de regras de negocio e evolucao para APIs mais robustas.",
         icon: HiOutlineCommandLine,
       },
       {
         name: "Spring Boot",
         level: "Em crescimento",
         description:
-          "APIs REST, validação, serviços, segurança, documentação OpenAPI e arquitetura em camadas.",
+          "APIs REST, validacao, seguranca, camadas e documentacao OpenAPI.",
         icon: HiOutlineBolt,
       },
       {
         name: "C# e .NET",
         level: "Stack alvo",
         description:
-          "Parte central do meu foco de estágio, com aprofundamento contínuo em backend corporativo.",
+          "Aprofundamento continuo com foco em oportunidades de estagio backend.",
         icon: HiOutlineCodeBracket,
       },
       {
         name: "Python",
-        level: "Uso aplicado",
+        level: "Aplicado em projeto",
         description:
-          "APIs com FastAPI, integração com dados, automações e produtos de apoio à decisão.",
+          "FastAPI, automacao, analytics e produtos de apoio a decisao.",
         icon: HiOutlineCpuChip,
       },
     ],
   },
   {
-    category: "Web e interface",
+    category: "Frontend e DX",
     items: [
-      {
-        name: "JavaScript",
-        level: "Uso recorrente",
-        description:
-          "Base para interfaces, consumo de APIs e comportamento de aplicações web.",
-        icon: HiOutlineCodeBracket,
-      },
       {
         name: "TypeScript",
         level: "Uso recorrente",
         description:
-          "Tipagem de contratos, componentes reutilizáveis e manutenção mais segura no frontend.",
+          "Tipagem, componentes reutilizaveis e manutencao mais segura.",
         icon: HiOutlineShieldCheck,
       },
       {
         name: "React",
         level: "Uso recorrente",
         description:
-          "Dashboards, telas operacionais, formulários e componentes com foco em leitura técnica.",
-        icon: HiOutlineCommandLine,
+          "Interfaces para dashboards, formularios e leitura executiva de dados.",
+        icon: HiOutlineSparkles,
+      },
+      {
+        name: "Git e GitHub",
+        level: "Uso diario",
+        description:
+          "Versionamento, documentacao publica e fluxo incremental de entrega.",
+        icon: HiOutlineFolderOpen,
       },
     ],
   },
   {
-    category: "Dados e infraestrutura",
+    category: "Dados e Infra",
     items: [
       {
         name: "SQL",
         level: "Aplicado em projeto",
         description:
-          "Modelagem relacional, consultas, persistência e apoio a indicadores de negócio.",
+          "Modelagem relacional, persistencia e leitura de indicadores de negocio.",
         icon: HiOutlineCircleStack,
       },
       {
         name: "APIs REST",
         level: "Foco principal",
         description:
-          "Contratos claros, rotas organizadas, autenticação e integração entre serviços e interface.",
+          "Rotas claras, autenticacao, integracao entre servicos e interface.",
         icon: HiOutlineCloud,
       },
       {
-        name: "Docker básico",
+        name: "Docker basico",
         level: "Base profissional",
         description:
-          "Ambientes locais reproduzíveis com backend, frontend e banco de dados isolados.",
+          "Ambientes locais reproduziveis com backend, frontend e banco.",
         icon: HiOutlineLifebuoy,
-      },
-      {
-        name: "Git e GitHub",
-        level: "Uso diário",
-        description:
-          "Versionamento, organização de repositórios, documentação pública e fluxo incremental.",
-        icon: HiOutlineFolderOpen,
       },
     ],
   },
@@ -212,13 +203,13 @@ export const projects: ProjectItem[] = [
   {
     slug: "devtrack-ai",
     title: "DevTrack AI",
-    shortTitle: "productivity platform",
+    shortTitle: "Plataforma full stack para produtividade tecnica",
     description:
-      "Plataforma de produtividade para desenvolvedores com projetos, tarefas, metas de estudo, resumos semanais e recomendações explicáveis.",
+      "Sistema para organizar projetos, tarefas, metas de estudo e resumos semanais com recomendacoes explicaveis.",
     problemSolved:
-      "Organizar produtividade técnica sem cair em um gerenciador genérico de tarefas, conectando entregas, estudos, risco de atraso e prioridade semanal.",
+      "Evitar que acompanhamento de produtividade vire apenas um CRUD sem contexto de estudo, entrega e prioridade.",
     architectureUsed:
-      "Backend Java 21 com Spring Boot, segurança, validação e OpenAPI; frontend React com TypeScript; PostgreSQL e Docker Compose para ambiente local.",
+      "Backend Java 21 com Spring Boot e seguranca; frontend React com TypeScript; PostgreSQL e Docker Compose.",
     technologies: [
       "Java 21",
       "Spring Boot",
@@ -228,30 +219,30 @@ export const projects: ProjectItem[] = [
       "Docker",
     ],
     challenges: [
-      "Traduzir produtividade em regras explicáveis e não em IA opaca.",
-      "Conectar metas de estudo, tarefas e resumo semanal com boa narrativa.",
-      "Equilibrar produto, backend e documentação em um mesmo case.",
+      "Transformar dados simples em leitura util para o usuario.",
+      "Equilibrar produto, backend e documentacao no mesmo case.",
+      "Manter narrativa forte para entrevistas de estagio.",
     ],
     learnings: [
-      "Produto full stack com proposta clara para recrutadores.",
-      "Boa demonstração de autenticação, API, domínio e setup local.",
-      "Projeto forte para entrevistas com foco em engenharia de software.",
+      "Boa prova de autenticacao, API, dominio e setup local.",
+      "Case forte para mostrar engenharia de software completa.",
+      "Projeto orientado a produto, nao apenas a features soltas.",
     ],
-    status: "featured build",
-    imageLabel: "devtrack-ai.dashboard",
+    status: "Case principal",
+    imageLabel: "Produtividade tecnica",
     githubUrl: "https://github.com/JoaoVictorAAbreu-Dev/project-devtrack-ai",
     demoUrl: null,
     caseStudy: {
       context:
-        "DevTrack AI foi estruturado como produto de portfólio para mostrar uma entrega full stack além de um simples gerenciador de tarefas.",
+        "DevTrack AI foi estruturado como um produto de portfolio para demonstrar uma entrega full stack mais madura.",
       problem:
-        "Ferramentas comuns registram atividades, mas raramente ajudam a interpretar risco, atraso, carga aberta e prioridade da semana de forma justificável.",
+        "Ferramentas comuns registram atividades, mas raramente ajudam a interpretar carga, atraso e prioridade de maneira justificavel.",
       solution:
-        "O projeto combina projetos, tarefas, metas de estudo e visão semanal com recomendações baseadas em sinais objetivos do sistema.",
+        "O projeto combina projetos, tarefas, metas de estudo e resumos semanais com recomendacoes baseadas em sinais objetivos.",
       architecture: [
-        "Backend Spring Boot com segurança, validação e contratos de API",
+        "Backend Spring Boot com seguranca, validacao e contratos de API",
         "Frontend React orientado a dashboard e leitura executiva",
-        "PostgreSQL e Docker Compose para setup reproduzível",
+        "PostgreSQL e Docker Compose para setup reproduzivel",
       ],
       technologies: [
         "Java 21",
@@ -263,17 +254,17 @@ export const projects: ProjectItem[] = [
       ],
       challenges: [
         "Evitar um CRUD sem contexto de produto",
-        "Transformar métricas simples em recomendações úteis",
+        "Transformar metricas em recomendacoes uteis",
         "Equilibrar escopo e clareza arquitetural",
       ],
       results: [
         "Projeto consistente para demonstrar backend e produto",
-        "Narrativa forte para vagas de estágio em software engineering",
-        "Boa amostra de organização técnica ponta a ponta",
+        "Narrativa forte para vagas de estagio em software engineering",
+        "Boa amostra de organizacao tecnica ponta a ponta",
       ],
       futureImprovements: [
-        "Histórico semanal por usuário",
-        "Exportação de resumo em PDF",
+        "Historico semanal por usuario",
+        "Exportacao de resumo em PDF",
         "Cobertura adicional de testes automatizados",
       ],
     },
@@ -281,47 +272,47 @@ export const projects: ProjectItem[] = [
   {
     slug: "greenops-control-center",
     title: "GreenOps Control Center",
-    shortTitle: "spring backend + dashboard",
+    shortTitle: "Centro de controle operacional com Spring e JWT",
     description:
-      "Centro de controle operacional para priorização de vegetação rodoviária com autenticação JWT, planejamento semanal e suporte a decisão.",
+      "Dashboard operacional para priorizacao de vegetacao rodoviaria com autenticacao, ranking e plano semanal.",
     problemSolved:
-      "Evitar decisões de manutenção guiadas por cronograma fixo, substituindo isso por priorização explicável, ranking e plano semanal por capacidade.",
+      "Substituir manutencao baseada em cronograma fixo por decisao explicavel e orientada a prioridade real.",
     architectureUsed:
-      "Backend em Java 21 com Spring Security, DTOs, serviços e OpenAPI; frontend React; PostgreSQL; testes e scripts locais de setup.",
+      "Backend em Java 21 com Spring Security, DTOs, servicos e OpenAPI; frontend React; PostgreSQL.",
     technologies: [
       "Java 21",
       "Spring Boot",
       "JWT",
       "PostgreSQL",
       "React",
-      "Vitest",
+      "OpenAPI",
     ],
     challenges: [
-      "Modelar um cenário operacional realista sem perder simplicidade.",
-      "Manter a regra de negócio centralizada e legível.",
-      "Conectar ranking, indicadores, clima e autenticação no mesmo produto.",
+      "Modelar uma operacao mais realista sem perder clareza.",
+      "Centralizar regra de negocio de forma legivel.",
+      "Conectar ranking, clima e autenticacao no mesmo produto.",
     ],
     learnings: [
-      "Projeto muito forte para demonstrar arquitetura em camadas.",
-      "Boa vitrine de Spring Security, JWT e OpenAPI.",
-      "Mostra backend com foco em regra de negócio, não só interface.",
+      "Mostra arquitetura em camadas com mais maturidade.",
+      "Boa vitrine de Spring Security e documentacao de API.",
+      "Projeto forte para demonstrar backend orientado a negocio.",
     ],
-    status: "featured build",
-    imageLabel: "greenops.control-center",
+    status: "Case principal",
+    imageLabel: "Operacao e decisao",
     githubUrl:
       "https://github.com/JoaoVictorAAbreu-Dev/project-greenops-control-center",
     demoUrl: null,
     caseStudy: {
       context:
-        "GreenOps Control Center foi pensado como um produto de apoio à decisão, e não como um CRUD genérico de cadastros.",
+        "GreenOps foi pensado como produto de apoio a decisao, e nao como cadastro generico.",
       problem:
-        "Cronogramas lineares de manutenção costumam gerar custo extra por intervenção antecipada e risco por atraso de execução.",
+        "Cronogramas lineares geram custo por intervencao antecipada e risco por atraso de execucao.",
       solution:
-        "O sistema calcula prioridade por trecho, organiza ranking, mostra indicadores executivos e gera plano semanal conforme capacidade das equipes.",
+        "O sistema calcula prioridade por trecho, organiza ranking, mostra indicadores e gera plano semanal conforme capacidade.",
       architecture: [
-        "Backend Spring Boot com controller, dto, service, repository, model e exception",
-        "Autenticação JWT e documentação OpenAPI para demonstrar maturidade de API",
-        "Frontend React para painel operacional e leitura de sinais críticos",
+        "Backend Spring Boot com controller, dto, service, repository e exception",
+        "Autenticacao JWT e documentacao OpenAPI",
+        "Frontend React para leitura operacional e decisao",
       ],
       technologies: [
         "Java 21",
@@ -332,14 +323,14 @@ export const projects: ProjectItem[] = [
         "OpenAPI",
       ],
       challenges: [
-        "Explicar a priorização de forma transparente",
-        "Integrar dados operacionais e climáticos sem inflar escopo",
-        "Preservar clareza técnica para avaliação de recrutadores",
+        "Explicar a priorizacao de forma transparente",
+        "Integrar dados operacionais e climaticos",
+        "Preservar clareza tecnica para recrutadores",
       ],
       results: [
         "Um dos projetos mais fortes para vagas backend",
-        "Boa evidência de organização técnica e raciocínio de produto",
-        "Entrega mais próxima de um cenário corporativo real",
+        "Boa evidencia de organizacao tecnica e raciocinio de produto",
+        "Entrega proxima de um cenario corporativo real",
       ],
       futureImprovements: [
         "Pipeline de CI/CD",
@@ -351,13 +342,13 @@ export const projects: ProjectItem[] = [
   {
     slug: "motiva-orion",
     title: "Motiva ORION",
-    shortTitle: "operational intelligence platform",
+    shortTitle: "Inteligencia operacional com FastAPI e dados",
     description:
-      "Plataforma corporativa de inteligência operacional para gestão preditiva de vegetação rodoviária com ETL, scoring determinístico e relatórios.",
+      "Plataforma corporativa de inteligencia operacional para gestao preditiva com ETL, scoring e relatorios.",
     problemSolved:
-      "Consolidar dados heterogêneos, risco operacional e contexto regulatório em uma visão acionável para priorização de campo.",
+      "Consolidar dados heterogeneos, risco operacional e contexto regulatorio em uma visao acionavel para priorizacao de campo.",
     architectureUsed:
-      "Frontend React; backend FastAPI; PostgreSQL; pipeline ETL geoespacial; motor determinístico de risco; relatórios e camada interpretativa complementar.",
+      "Frontend React; backend FastAPI; PostgreSQL; ETL geoespacial; motor deterministico de risco.",
     technologies: [
       "FastAPI",
       "Python",
@@ -368,28 +359,28 @@ export const projects: ProjectItem[] = [
     ],
     challenges: [
       "Integrar ETL, API, score e dashboard sem perder legibilidade.",
-      "Separar cálculo determinístico da camada interpretativa.",
-      "Sustentar um domínio mais denso do que um projeto acadêmico comum.",
+      "Separar calculo deterministico da camada interpretativa.",
+      "Sustentar um dominio mais denso do que um projeto academico comum.",
     ],
     learnings: [
-      "Projeto profundo em operação, dados e backend.",
-      "Mostra capacidade de trabalhar com domínio mais complexo.",
-      "Diferencial importante pela maturidade do contexto técnico.",
+      "Projeto profundo em operacao, dados e backend.",
+      "Mostra capacidade de trabalhar com dominio mais complexo.",
+      "Diferencial importante pela maturidade do contexto tecnico.",
     ],
-    status: "featured build",
-    imageLabel: "motiva-orion.exec-panel",
+    status: "Case principal",
+    imageLabel: "Dados e previsao",
     githubUrl: "https://github.com/JoaoVictorAAbreu-Dev/project-motiva-orion",
     demoUrl: null,
     caseStudy: {
       context:
-        "Motiva ORION amplia o recorte do portfólio para um cenário com dados geográficos, conformidade, priorização e tomada de decisão operacional.",
+        "Motiva ORION amplia o portfolio para um cenario com dados geograficos, conformidade e tomada de decisao operacional.",
       problem:
-        "Sem centralização, dados de vegetação, risco, clima e conformidade ficam dispersos e dificultam a definição de um plano de ação consistente.",
+        "Sem centralizacao, dados de vegetacao, risco, clima e conformidade ficam dispersos e dificultam um plano consistente.",
       solution:
-        "A plataforma organiza ingestão, persistência, scoring, planejamento de missão, APIs e dashboards em um fluxo único de leitura operacional.",
+        "A plataforma organiza ingestao, persistencia, scoring, planejamento de missao, APIs e dashboards em um fluxo unico.",
       architecture: [
         "Pipeline ETL para CSV, XLSX, KML e KMZ",
-        "FastAPI com autenticação JWT, regras de negócio e relatórios",
+        "FastAPI com autenticacao JWT, regras de negocio e relatorios",
         "Frontend React para mapa, ranking, simulador e centro executivo",
       ],
       technologies: [
@@ -401,32 +392,32 @@ export const projects: ProjectItem[] = [
         "GeoPandas",
       ],
       challenges: [
-        "Definir regras reproduzíveis em um domínio complexo",
-        "Combinar geodados, scoring e experiência operacional",
-        "Controlar escopo mesmo com múltiplas capacidades do produto",
+        "Definir regras reproduziveis em um dominio complexo",
+        "Combinar geodados, scoring e experiencia operacional",
+        "Controlar escopo com multiplas capacidades de produto",
       ],
       results: [
         "Projeto de alto valor para demonstrar engenharia aplicada",
-        "Boa amostra de backend com dados e decisão operacional",
-        "Diferencial relevante em um portfólio de estudante",
+        "Boa amostra de backend com dados e decisao operacional",
+        "Diferencial relevante em um portfolio de estudante",
       ],
       futureImprovements: [
-        "Mais testes de integração",
+        "Mais testes de integracao",
         "Observabilidade do backend",
-        "Expansão controlada das integrações externas",
+        "Expansao controlada das integracoes externas",
       ],
     },
   },
   {
     slug: "climate-analytics",
     title: "Climate Analytics",
-    shortTitle: "weather intelligence dashboard",
+    shortTitle: "Dashboard de analytics climatico",
     description:
-      "Dashboard de inteligência climática com visão de condições atuais, previsão de curto prazo e indicadores simples de risco para planejamento operacional.",
+      "Dashboard de inteligencia climatica com condicoes atuais, previsao de curto prazo e indicadores simples de risco.",
     problemSolved:
-      "Transformar dados públicos de clima em sinais legíveis para decisão, sem esconder a lógica por trás de modelos opacos.",
+      "Transformar dados publicos de clima em sinais legiveis para planejamento, sem esconder a logica por tras dos calculos.",
     architectureUsed:
-      "Backend em FastAPI para endpoints de clima e analytics; frontend React com TypeScript; consumo da Open-Meteo API e testes básicos.",
+      "Backend FastAPI para endpoints de clima e analytics; frontend React com TypeScript; consumo da Open-Meteo API.",
     technologies: [
       "Python",
       "FastAPI",
@@ -436,31 +427,31 @@ export const projects: ProjectItem[] = [
       "Pytest",
     ],
     challenges: [
-      "Traduzir dados climáticos em alertas operacionais legíveis.",
-      "Manter o produto simples, mas com valor real de leitura.",
-      "Integrar backend e frontend de forma enxuta e profissional.",
+      "Traduzir dados climaticos em alertas operacionais legiveis.",
+      "Manter o produto simples, mas com valor real.",
+      "Integrar backend e frontend de forma enxuta.",
     ],
     learnings: [
       "Boa prova de conceito para APIs orientadas a analytics.",
-      "Mostra integração entre dados públicos e painel web.",
-      "Reforça leitura de produto baseada em sinais explicáveis.",
+      "Mostra integracao entre dados publicos e painel web.",
+      "Complementa o portfolio com recorte analitico.",
     ],
-    status: "selected build",
-    imageLabel: "climate-analytics.forecast",
+    status: "Projeto complementar",
+    imageLabel: "Analytics climatico",
     githubUrl:
       "https://github.com/JoaoVictorAAbreu-Dev/project-climate-analytics",
     demoUrl: null,
     caseStudy: {
       context:
-        "Climate Analytics foi posicionado como uma ferramenta de suporte à decisão com base em dados públicos de clima.",
+        "Climate Analytics foi posicionado como ferramenta de suporte a decisao com base em dados publicos.",
       problem:
-        "Muitos painéis climáticos mostram números, mas não ajudam a transformar previsão em ação operacional direta.",
+        "Muitos paineis climaticos mostram numeros, mas nao ajudam a transformar previsao em acao operacional.",
       solution:
-        "O sistema entrega snapshot atual, blocos de previsão e indicadores simples de calor, vento, umidade e risco de chuva.",
+        "O sistema entrega snapshot atual, blocos de previsao e indicadores simples de calor, vento, umidade e risco de chuva.",
       architecture: [
-        "FastAPI com endpoints de saúde, clima, forecast e analytics",
+        "FastAPI com endpoints de saude, clima, forecast e analytics",
         "Frontend React com leitura enxuta de dados por cidade",
-        "Integração com Open-Meteo e checagens básicas de qualidade",
+        "Integracao com Open-Meteo e checagens basicas de qualidade",
       ],
       technologies: [
         "Python",
@@ -471,32 +462,32 @@ export const projects: ProjectItem[] = [
         "Pytest",
       ],
       challenges: [
-        "Evitar um dashboard sem interpretação",
-        "Escolher métricas úteis para planejamento",
-        "Preservar simplicidade técnica no escopo",
+        "Evitar um dashboard sem interpretacao",
+        "Escolher metricas uteis para planejamento",
+        "Preservar simplicidade tecnica no escopo",
       ],
       results: [
-        "Boa vitrine de integração com API pública",
+        "Boa vitrine de integracao com API publica",
         "Exemplo claro de produto enxuto com backend e frontend",
-        "Complementa o portfólio com recorte analítico",
+        "Complementa o portfolio com recorte analitico",
       ],
       futureImprovements: [
-        "Persistência de histórico por cidade",
+        "Persistencia de historico por cidade",
         "Alertas customizados",
-        "Comparação entre janelas de tempo",
+        "Comparacao entre janelas de tempo",
       ],
     },
   },
   {
     slug: "bot-nba",
     title: "Bot NBA",
-    shortTitle: "discord bot + api fallback",
+    shortTitle: "Automacao com Discord e APIs externas",
     description:
-      "Bot interativo para fãs da NBA com comandos em Discord, dashboard web e fallback entre provedores de dados esportivos.",
+      "Bot para Discord com comandos sobre NBA, fallback entre provedores de dados esportivos e painel complementar.",
     problemSolved:
-      "Consumir dados da NBA de forma confiável mesmo quando um dos provedores externos falha, preservando a utilidade do produto.",
+      "Consumir dados de forma confiavel mesmo quando um dos provedores externos falha.",
     architectureUsed:
-      "Aplicação em Python com discord.py, serviços isolados, fallback entre APIs e dashboard web complementar com FastAPI.",
+      "Aplicacao em Python com discord.py, servicos isolados, fallback entre APIs e dashboard web complementar.",
     technologies: [
       "Python",
       "discord.py",
@@ -507,29 +498,29 @@ export const projects: ProjectItem[] = [
     ],
     challenges: [
       "Tratar indisponibilidade de APIs externas.",
-      "Organizar comandos, serviços e utilitários sem acoplamento excessivo.",
-      "Manter UX simples entre bot e painel web.",
+      "Organizar comandos, servicos e utilitarios sem acoplamento excessivo.",
+      "Manter experiencia simples entre bot e painel.",
     ],
     learnings: [
-      "Mostra integração prática com APIs de terceiros.",
+      "Mostra integracao pratica com APIs de terceiros.",
       "Evidencia tratamento de falhas e fallback de provider.",
-      "Adiciona automação e bot development ao portfólio.",
+      "Adiciona automacao ao portfolio.",
     ],
-    status: "selected build",
-    imageLabel: "bot-nba.command-center",
+    status: "Projeto complementar",
+    imageLabel: "Bot e integracoes",
     githubUrl: "https://github.com/JoaoVictorAAbreu-Dev/project-bot-nba",
     demoUrl: null,
     caseStudy: {
       context:
-        "Bot NBA foi construído para consumir informações esportivas em tempo real com uma experiência simples dentro do Discord.",
+        "Bot NBA foi construido para consumir informacoes esportivas em tempo real com uma experiencia simples dentro do Discord.",
       problem:
-        "APIs esportivas nem sempre são estáveis ou completas. Isso reduz confiabilidade quando o produto depende de uma única fonte de dados.",
+        "APIs esportivas nem sempre sao estaveis ou completas. Isso reduz confiabilidade quando o produto depende de uma unica fonte.",
       solution:
-        "O projeto combina balldontlie com TheSportsDB como fallback e expõe comandos úteis de times, jogadores, jogos e ranking.",
+        "O projeto combina balldontlie com TheSportsDB como fallback e expoe comandos uteis de times, jogadores, jogos e ranking.",
       architecture: [
-        "Camada de serviços para integração com APIs externas",
+        "Camada de servicos para integracao com APIs externas",
         "Comandos desacoplados do core do bot",
-        "Painel web complementar para visualização local",
+        "Painel web complementar para visualizacao local",
       ],
       technologies: [
         "Python",
@@ -541,30 +532,30 @@ export const projects: ProjectItem[] = [
       challenges: [
         "Gerenciar indisponibilidade de provedores",
         "Padronizar respostas entre fontes diferentes",
-        "Controlar configuração local com múltiplas chaves",
+        "Controlar configuracao local com multiplas chaves",
       ],
       results: [
-        "Boa amostra de integração e tolerância a falhas",
-        "Projeto útil para demonstrar automação com APIs",
-        "Expande o portfólio além do dashboard tradicional",
+        "Boa amostra de integracao e tolerancia a falhas",
+        "Projeto util para demonstrar automacao com APIs",
+        "Expande o portfolio alem do dashboard tradicional",
       ],
       futureImprovements: [
-        "Mais testes de integração",
+        "Mais testes de integracao",
         "Cache local para consultas frequentes",
-        "Histórico de interações por usuário",
+        "Historico de interacoes por usuario",
       ],
     },
   },
   {
     slug: "aetheros",
     title: "AetherOS",
-    shortTitle: "academic open source operating system",
+    shortTitle: "Sistema operacional academico em Rust",
     description:
-      "Sistema operacional acadêmico em Rust para x86_64, com arquitetura modular, documentação forte e foco educacional em baixo nível.",
+      "Sistema operacional academico em Rust para x86_64, com arquitetura modular e documentacao forte.",
     problemSolved:
-      "Criar uma base séria de estudo para OSDev sem ficar apenas em um boot screen mínimo ou em um repositório sem explicação arquitetural.",
+      "Criar uma base seria de estudo para OSDev sem ficar em um repositorio raso ou sem explicacao arquitetural.",
     architectureUsed:
-      "Projeto em Rust com kernel modular, crates organizadas, documentação, roadmap, convenções de contribuição e execução em QEMU.",
+      "Projeto em Rust com kernel modular, crates organizadas, roadmap e execucao em QEMU.",
     technologies: [
       "Rust",
       "x86_64",
@@ -574,108 +565,69 @@ export const projects: ProjectItem[] = [
       "GitHub Actions",
     ],
     challenges: [
-      "Trabalhar em baixo nível com disciplina arquitetural.",
-      "Documentar decisões para quem ainda está aprendendo OSDev.",
-      "Equilibrar profundidade técnica e clareza didática.",
+      "Trabalhar em baixo nivel com disciplina arquitetural.",
+      "Documentar decisoes para quem ainda esta aprendendo OSDev.",
+      "Equilibrar profundidade tecnica e clareza didatica.",
     ],
     learnings: [
-      "Mostra curiosidade técnica além do recorte web.",
-      "Reforça disciplina arquitetural e documentação.",
-      "Diferencial de profundidade para um estudante em início de carreira.",
+      "Mostra curiosidade tecnica alem do recorte web.",
+      "Reforca disciplina arquitetural e documentacao.",
+      "Diferencial de profundidade para um estudante.",
     ],
-    status: "open source build",
-    imageLabel: "aetheros.kernel-view",
+    status: "Projeto complementar",
+    imageLabel: "Baixo nivel e arquitetura",
     githubUrl: "https://github.com/JoaoVictorAAbreu-Dev/project-aetheros",
     demoUrl: null,
     caseStudy: {
       context:
-        "AetherOS nasceu como sistema operacional acadêmico open source, com o objetivo de ser ao mesmo tempo sério tecnicamente e útil como referência educacional.",
+        "AetherOS nasceu como sistema operacional academico open source, com foco em ser tecnico e util para estudo.",
       problem:
-        "Repositórios de sistemas operacionais amadores costumam ser ou superficiais demais, ou técnicos demais sem documentação suficiente para aprendizado.",
+        "Repositorios de sistemas operacionais amadores costumam ser superficiais demais ou tecnicos demais sem documentacao suficiente.",
       solution:
-        "O projeto organiza kernel, crates, scripts e documentação para evoluir de forma incremental com foco em arquitetura limpa e clareza.",
+        "O projeto organiza kernel, crates, scripts e documentacao para evoluir de forma incremental com foco em arquitetura limpa.",
       architecture: [
         "Kernel modular em Rust para x86_64",
-        "Crates e diretórios separados por responsabilidade",
-        "Docs, roadmap e convenções de contribuição como parte do produto",
+        "Crates e diretorios separados por responsabilidade",
+        "Docs, roadmap e convencoes de contribuicao como parte do produto",
       ],
       technologies: ["Rust", "x86_64", "QEMU", "Cargo", "GitHub Actions"],
       challenges: [
-        "Lidar com baixo nível e modularidade ao mesmo tempo",
+        "Lidar com baixo nivel e modularidade ao mesmo tempo",
         "Documentar trade-offs de arquitetura",
-        "Tornar o projeto útil para estudo e contribuição",
+        "Tornar o projeto util para estudo e contribuicao",
       ],
       results: [
-        "Projeto que amplia a profundidade técnica do portfólio",
-        "Boa demonstração de disciplina arquitetural",
-        "Diferencial de aprendizado para recrutadores técnicos",
+        "Projeto que amplia a profundidade tecnica do portfolio",
+        "Boa demonstracao de disciplina arquitetural",
+        "Diferencial de aprendizado para recrutadores tecnicos",
       ],
       futureImprovements: [
         "Mais testes automatizados de subsistemas",
-        "Expansão da documentação técnica",
-        "Evolução incremental do kernel e user space",
+        "Expansao da documentacao tecnica",
+        "Evolucao incremental do kernel e user space",
       ],
     },
   },
 ];
 
-export const githubInsights: GithubInsight[] = [
-  {
-    label: "Public repositories",
-    value: "43",
-    detail:
-      "Base pública com projetos de backend, dashboards, automações e estudos de sistemas.",
-  },
-  {
-    label: "Primary focus",
-    value: "Backend engineering",
-    detail:
-      "Java, Spring Boot, Python, APIs REST, persistência relacional e organização de domínio.",
-  },
-  {
-    label: "Current positioning",
-    value: "Open source in progress",
-    detail:
-      "Portfólio evoluindo com documentação, setup local, testes e narrativa técnica mais madura.",
-  },
-  {
-    label: "Main signal",
-    value: "Product-driven builds",
-    detail:
-      "Projetos priorizam contexto real, regra de negócio e clareza técnica para recrutadores.",
-  },
-];
-
 export const timeline: TimelineItem[] = [
   {
-    period: "2026",
-    title: "Computer Science Student",
+    period: "Agora",
+    title: "FIAP | Ciencia da Computacao",
     description:
-      "Base acadêmica em lógica, POO, desenvolvimento web, estrutura de dados e fundamentos de engenharia de software na FIAP.",
+      "Base academica em logica, POO, desenvolvimento web, estrutura de dados e fundamentos de engenharia de software.",
   },
   {
-    period: "2026",
-    title: "Backend projects and academic systems",
+    period: "Foco atual",
+    title: "Backend, APIs e arquitetura",
     description:
-      "Construção de APIs, dashboards, automações e sistemas acadêmicos com foco crescente em backend e organização técnica.",
+      "Desenvolvimento de projetos publicos com Java, Spring Boot, Python, dados e interfaces para demonstrar maturidade tecnica.",
   },
   {
-    period: "2027",
-    title: "Backend Developer Internship",
+    period: "Proximo passo",
+    title: "Estagio em Engenharia de Software",
     description:
-      "Próxima etapa desejada: aplicar backend, testes, documentação e trabalho colaborativo em ambiente profissional.",
-  },
-  {
-    period: "2028",
-    title: "Software Engineer Junior",
-    description:
-      "Evolução para contexto de produto com mais profundidade em arquitetura, dados, cloud e qualidade contínua.",
-  },
-  {
-    period: "2030+",
-    title: "Software Engineer focused on scalable systems",
-    description:
-      "Objetivo de longo prazo: atuar com sistemas escaláveis, backend robusto e decisões técnicas orientadas a produto.",
+      "Aplicar backend, testes, documentacao e trabalho colaborativo em um ambiente profissional.",
   },
 ];
 
@@ -690,25 +642,19 @@ export const learningPath: LearningItem[] = [
     title: "Spring Boot",
     status: "In progress",
     detail:
-      "Aprofundar segurança, validação, testes, persistência e desenho de APIs para produto real.",
+      "Aprofundar seguranca, validacao, testes, persistencia e desenho de APIs.",
   },
   {
     title: "Microsoft AZ-900",
     status: "Planned",
     detail:
-      "Consolidar base de cloud e vocabulário de infraestrutura relevante para times de engenharia.",
+      "Consolidar base de cloud e vocabulario de infraestrutura relevante para times de engenharia.",
   },
   {
     title: "GitHub Foundations",
     status: "Planned",
     detail:
-      "Refinar práticas de versionamento, colaboração, automação e documentação pública.",
-  },
-  {
-    title: "AWS Cloud Practitioner",
-    status: "Planned",
-    detail:
-      "Expandir repertório de cloud e serviços frequentemente presentes em vagas de estágio.",
+      "Refinar praticas de versionamento, colaboracao, automacao e documentacao publica.",
   },
 ];
 
@@ -757,6 +703,5 @@ export const sectionIcons = {
   about: HiOutlineAcademicCap,
   stack: HiOutlineCommandLine,
   projects: HiOutlineFolderOpen,
-  github: HiOutlineCpuChip,
   journey: HiOutlineRocketLaunch,
 };
